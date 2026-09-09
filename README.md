@@ -1,6 +1,6 @@
-# EPUB翻译
+# EPUB翻译 / EPUB Translator
 
-EPUB翻译是一款免费的原生 macOS EPUB 英译中工具。它使用用户自行提供的 Qwen（通义千问）或 DeepSeek API Key，在保留章节结构、封面、书内图片和主要排版的前提下生成简体中文 EPUB。
+EPUB翻译是一款免费的原生 macOS EPUB 英译中工具。它采用 BYOK（Bring Your Own Key）模式，使用用户自行提供的 Qwen（通义千问）或 DeepSeek API Key，在保留章节结构、封面、书内图片和主要排版的前提下完成 EPUB → EPUB 翻译并生成简体中文 EPUB。
 
 当前源码快照对应：`1.0.1 (4)`。
 
@@ -38,6 +38,8 @@ App 不访问 macOS 钥匙串。电子书内容只会在翻译所需的范围内
 ```
 
 更多信息见 [DEVELOPMENT.md](DEVELOPMENT.md) 与 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+普通用户遇到产品 Bug 或使用问题，请前往[下载仓库 Issues](https://github.com/yyttwo/EPUB-Translator-Releases/issues)反馈；源码改进请通过本仓库的 Pull Request 提交。
 
 ## 许可证
 
