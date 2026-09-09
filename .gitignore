@@ -1,0 +1,52 @@
+# macOS and Xcode user state
+.DS_Store
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Build products and caches
+build/
+DerivedData/
+.build/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.app
+*.dSYM
+*.dmg
+*.zip
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.p12
+*.mobileprovision
+*.provisionprofile
+*.cer
+secrets/
+local-config/
+
+# Logs, checkpoints, databases, and diagnostics
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.checkpoint
+*.xcresult
+coverage/
+dist/
+release/
+private/
+
+# User books and generated translations
+*.epub
+!fixtures/stage-1-self-authored.epub
+
+# Editor state
+.idea/
+.vscode/
+*~
+*.swp

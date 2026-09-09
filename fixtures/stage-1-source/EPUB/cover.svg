@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900">
+  <rect width="600" height="900" fill="#183153"/>
+  <rect x="42" y="42" width="516" height="816" rx="24" fill="#f5efe3"/>
+  <text x="300" y="390" text-anchor="middle" font-family="serif" font-size="44" fill="#183153">EPUB Translator</text>
+  <text x="300" y="465" text-anchor="middle" font-family="serif" font-size="30" fill="#b45f2b">Self-Authored Fixture</text>
+  <path d="M170 570 Q300 500 430 570 L430 690 Q300 620 170 690 Z" fill="none" stroke="#183153" stroke-width="18"/>
+</svg>

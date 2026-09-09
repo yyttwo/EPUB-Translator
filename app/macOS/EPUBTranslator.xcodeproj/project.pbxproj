@@ -1,0 +1,277 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* AppIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* AppIdentity.swift */; };
+		A10000000000000000000002 /* FileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* FileAccess.swift */; };
+		A10000000000000000000003 /* SessionCredentialStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* SessionCredentialStore.swift */; };
+		A10000000000000000000004 /* HelperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* HelperClient.swift */; };
+		A10000000000000000000005 /* SecretRedactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000005 /* SecretRedactor.swift */; };
+		A10000000000000000000006 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000006 /* AppViewModel.swift */; };
+		A10000000000000000000007 /* ContentViewRedesigned.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000007 /* ContentViewRedesigned.swift */; };
+		A10000000000000000000008 /* EPUBTranslatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000008 /* EPUBTranslatorApp.swift */; };
+		A10000000000000000000009 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000009 /* main.swift */; };
+		A1000000000000000000000A /* FoundationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* FoundationTests.swift */; };
+		A1000000000000000000000B /* EPUBTranslatorHelper in Copy Helper */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* EPUBTranslatorHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A1000000000000000000000C /* LocalAcceptanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000010 /* LocalAcceptanceUITests.swift */; };
+		A1000000000000000000000D /* ProviderLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* ProviderLayer.swift */; };
+		A1000000000000000000000E /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* ProviderTests.swift */; };
+		A10000000000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000015 /* Assets.xcassets */; };
+		A10000000000000000000011 /* TranslationStylePromptRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000016 /* TranslationStylePromptRegistry.swift */; };
+		A10000000000000000000012 /* EPUBExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000017 /* EPUBExport.swift */; };
+		A10000000000000000000013 /* UserFacingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000018 /* UserFacingError.swift */; };
+		A10000000000000000000014 /* TranslationCheckpointStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000019 /* TranslationCheckpointStore.swift */; };
+		A10000000000000000000015 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000001A /* DesignSystem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C10000000000000000000001 /* Helper proxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10000000000000000000002;
+			remoteInfo = EPUBTranslatorHelper;
+		};
+		C10000000000000000000002 /* App proxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10000000000000000000001;
+			remoteInfo = EPUBTranslatorApp;
+		};
+		C10000000000000000000003 /* Helper test proxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10000000000000000000002;
+			remoteInfo = EPUBTranslatorHelper;
+		};
+		C10000000000000000000004 /* App UI test proxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10000000000000000000001;
+			remoteInfo = EPUBTranslatorApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F10000000000000000000004 /* Copy Helper */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Helpers;
+			dstSubfolderSpec = 1;
+			files = (A1000000000000000000000B /* EPUBTranslatorHelper in Copy Helper */, );
+			name = "Copy Helper";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B10000000000000000000001 /* AppIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdentity.swift; sourceTree = "<group>"; };
+		B10000000000000000000002 /* FileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAccess.swift; sourceTree = "<group>"; };
+		B10000000000000000000003 /* SessionCredentialStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCredentialStore.swift; sourceTree = "<group>"; };
+		B10000000000000000000004 /* HelperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClient.swift; sourceTree = "<group>"; };
+		B10000000000000000000005 /* SecretRedactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretRedactor.swift; sourceTree = "<group>"; };
+		B10000000000000000000006 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000000000007 /* ContentViewRedesigned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewRedesigned.swift; sourceTree = "<group>"; };
+		B10000000000000000000008 /* EPUBTranslatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBTranslatorApp.swift; sourceTree = "<group>"; };
+		B10000000000000000000009 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B1000000000000000000000A /* FoundationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationTests.swift; sourceTree = "<group>"; };
+		B1000000000000000000000B /* EPUB翻译.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EPUB翻译.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000000000000000000000C /* EPUBTranslatorHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EPUBTranslatorHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000000000000000000000D /* EPUBTranslatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPUBTranslatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000000000000000000000E /* EPUBTranslator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EPUBTranslator.entitlements; sourceTree = "<group>"; };
+		B1000000000000000000000F /* EPUBTranslatorHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EPUBTranslatorHelper.entitlements; sourceTree = "<group>"; };
+		B10000000000000000000010 /* LocalAcceptanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAcceptanceUITests.swift; sourceTree = "<group>"; };
+		B10000000000000000000011 /* EPUBTranslatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPUBTranslatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000012 /* ProviderLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderLayer.swift; sourceTree = "<group>"; };
+		B10000000000000000000013 /* ProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
+		B10000000000000000000015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B10000000000000000000016 /* TranslationStylePromptRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationStylePromptRegistry.swift; sourceTree = "<group>"; };
+		B10000000000000000000017 /* EPUBExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBExport.swift; sourceTree = "<group>"; };
+		B10000000000000000000018 /* UserFacingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFacingError.swift; sourceTree = "<group>"; };
+		B10000000000000000000019 /* TranslationCheckpointStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCheckpointStore.swift; sourceTree = "<group>"; };
+		B1000000000000000000001A /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F10000000000000000000001 /* App Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		F10000000000000000000005 /* Helper Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		F10000000000000000000008 /* Test Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		F1000000000000000000000A /* UI Test Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D10000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				D10000000000000000000003 /* Sources */,
+				D10000000000000000000006 /* Tests */,
+				D10000000000000000000008 /* UI Tests */,
+				B1000000000000000000000E /* EPUBTranslator.entitlements */,
+				B1000000000000000000000F /* EPUBTranslatorHelper.entitlements */,
+				D10000000000000000000007 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D10000000000000000000003 /* Sources */ = {
+			isa = PBXGroup;
+			children = (D10000000000000000000004 /* App */, D10000000000000000000005 /* Helper */, );
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000001, B10000000000000000000002, B10000000000000000000003,
+				B10000000000000000000004, B10000000000000000000005, B10000000000000000000006,
+				B10000000000000000000007, B10000000000000000000008,
+				B10000000000000000000012,
+					B10000000000000000000016,
+					B10000000000000000000017,
+					B10000000000000000000018,
+					B10000000000000000000019,
+					B1000000000000000000001A,
+					B10000000000000000000015,
+			);
+			path = EPUBTranslatorApp;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000005 /* Helper */ = {
+			isa = PBXGroup;
+			children = (B10000000000000000000009, );
+			path = EPUBTranslatorHelper;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000006 /* Tests */ = {
+			isa = PBXGroup;
+			children = (B1000000000000000000000A, B10000000000000000000013, );
+			path = Tests/EPUBTranslatorTests;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000008 /* UI Tests */ = {
+			isa = PBXGroup;
+			children = (B10000000000000000000010, );
+			path = Tests/EPUBTranslatorUITests;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000007 /* Products */ = {
+			isa = PBXGroup;
+			children = (B1000000000000000000000B, B1000000000000000000000C, B1000000000000000000000D, B10000000000000000000011, );
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E10000000000000000000001 /* EPUBTranslatorApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = H10000000000000000000002;
+			buildPhases = (F10000000000000000000002 /* Sources */, F10000000000000000000001 /* Frameworks */, F10000000000000000000003 /* Resources */, F10000000000000000000004 /* Copy Helper */, );
+			buildRules = ();
+			dependencies = (G10000000000000000000001 /* Helper dependency */, );
+			name = EPUBTranslatorApp;
+			productName = "EPUB Translator";
+			productReference = B1000000000000000000000B /* EPUB翻译.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E10000000000000000000002 /* EPUBTranslatorHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = H10000000000000000000003;
+			buildPhases = (F10000000000000000000006 /* Sources */, F10000000000000000000005 /* Frameworks */, );
+			buildRules = ();
+			dependencies = ();
+			name = EPUBTranslatorHelper;
+			productName = EPUBTranslatorHelper;
+			productReference = B1000000000000000000000C;
+			productType = "com.apple.product-type.tool";
+		};
+		E10000000000000000000003 /* EPUBTranslatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = H10000000000000000000004;
+			buildPhases = (F10000000000000000000007 /* Sources */, F10000000000000000000008 /* Frameworks */, F10000000000000000000009 /* Resources */, );
+			buildRules = ();
+			dependencies = (G10000000000000000000002 /* App dependency */, G10000000000000000000003 /* Helper dependency */, );
+			name = EPUBTranslatorTests;
+			productName = EPUBTranslatorTests;
+			productReference = B1000000000000000000000D;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E10000000000000000000004 /* EPUBTranslatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = H10000000000000000000005;
+			buildPhases = (F1000000000000000000000B /* Sources */, F1000000000000000000000A /* Frameworks */, F1000000000000000000000C /* Resources */, );
+			buildRules = ();
+			dependencies = (G10000000000000000000004 /* App UI test dependency */, );
+			name = EPUBTranslatorUITests;
+			productName = EPUBTranslatorUITests;
+			productReference = B10000000000000000000011;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D10000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 2660; LastUpgradeCheck = 2660; TargetAttributes = {E10000000000000000000001 = {CreatedOnToolsVersion = 26.6; }; E10000000000000000000002 = {CreatedOnToolsVersion = 26.6; }; E10000000000000000000003 = {CreatedOnToolsVersion = 26.6; TestTargetID = E10000000000000000000001; }; E10000000000000000000004 = {CreatedOnToolsVersion = 26.6; TestTargetID = E10000000000000000000001; }; }; };
+			buildConfigurationList = H10000000000000000000001;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base, );
+			mainGroup = D10000000000000000000002;
+			productRefGroup = D10000000000000000000007;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (E10000000000000000000001, E10000000000000000000002, E10000000000000000000003, E10000000000000000000004, );
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F10000000000000000000003 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000010 /* Assets.xcassets in Resources */, ); runOnlyForDeploymentPostprocessing = 0; };
+		F10000000000000000000009 /* Test Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		F1000000000000000000000C /* UI Test Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+			F10000000000000000000002 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001, A10000000000000000000002, A10000000000000000000003, A10000000000000000000004, A10000000000000000000005, A10000000000000000000006, A10000000000000000000007, A10000000000000000000008, A1000000000000000000000D, A10000000000000000000011, A10000000000000000000012, A10000000000000000000013, A10000000000000000000014, A10000000000000000000015, ); runOnlyForDeploymentPostprocessing = 0; };
+		F10000000000000000000006 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000009, ); runOnlyForDeploymentPostprocessing = 0; };
+		F10000000000000000000007 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1000000000000000000000A, A1000000000000000000000E, ); runOnlyForDeploymentPostprocessing = 0; };
+		F1000000000000000000000B /* UI Test Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1000000000000000000000C, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		G10000000000000000000001 /* Helper dependency */ = {isa = PBXTargetDependency; target = E10000000000000000000002; targetProxy = C10000000000000000000001; };
+		G10000000000000000000002 /* App dependency */ = {isa = PBXTargetDependency; target = E10000000000000000000001; targetProxy = C10000000000000000000002; };
+		G10000000000000000000003 /* Helper dependency */ = {isa = PBXTargetDependency; target = E10000000000000000000002; targetProxy = C10000000000000000000003; };
+		G10000000000000000000004 /* App UI test dependency */ = {isa = PBXTargetDependency; target = E10000000000000000000001; targetProxy = C10000000000000000000004; };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		I10000000000000000000001 /* Project Debug */ = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 13.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; }; name = Debug; };
+		I10000000000000000000002 /* Project Release */ = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 13.0; SDKROOT = macosx; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; SWIFT_VERSION = 5.0; }; name = Release; };
+		I10000000000000000000003 /* App Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_ENTITLEMENTS = EPUBTranslator.entitlements; CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 4; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = YES; ENABLE_HARDENED_RUNTIME = YES; ENABLE_INCOMING_NETWORK_CONNECTIONS = NO; ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES; ENABLE_TESTABILITY = YES; ENABLE_USER_SELECTED_FILES = readwrite; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = "EPUB翻译"; INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities"; INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 yyttwo. Licensed under Apache License 2.0."; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MARKETING_VERSION = 1.0.1; PRODUCT_BUNDLE_IDENTIFIER = com.example.EPUBTranslatorAppStore.Dev; PRODUCT_MODULE_NAME = EPUBTranslatorApp; PRODUCT_NAME = "EPUB翻译"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		I10000000000000000000004 /* App Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_ENTITLEMENTS = EPUBTranslator.entitlements; CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 4; DEAD_CODE_STRIPPING = YES; DEBUG_INFORMATION_FORMAT = ""; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = YES; ENABLE_HARDENED_RUNTIME = YES; ENABLE_INCOMING_NETWORK_CONNECTIONS = NO; ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES; ENABLE_USER_SELECTED_FILES = readwrite; GCC_GENERATE_DEBUGGING_SYMBOLS = NO; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = "EPUB翻译"; INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities"; INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 yyttwo. Licensed under Apache License 2.0."; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MARKETING_VERSION = 1.0.1; PRODUCT_BUNDLE_IDENTIFIER = com.yyttwo.EPUBTranslator; PRODUCT_MODULE_NAME = EPUBTranslatorApp; PRODUCT_NAME = "EPUB翻译"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_SERIALIZE_DEBUGGING_OPTIONS = NO; }; name = Release; };
+		I10000000000000000000005 /* Helper Debug */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = EPUBTranslatorHelper.entitlements; CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = YES; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = NO; PRODUCT_NAME = EPUBTranslatorHelper; SKIP_INSTALL = YES; }; name = Debug; };
+		I10000000000000000000006 /* Helper Release */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = EPUBTranslatorHelper.entitlements; CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; DEBUG_INFORMATION_FORMAT = ""; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = YES; ENABLE_HARDENED_RUNTIME = YES; GCC_GENERATE_DEBUGGING_SYMBOLS = NO; GENERATE_INFOPLIST_FILE = NO; PRODUCT_NAME = EPUBTranslatorHelper; SKIP_INSTALL = YES; SWIFT_SERIALIZE_DEBUGGING_OPTIONS = NO; }; name = Release; };
+		I10000000000000000000007 /* Tests Debug */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGNING_ALLOWED = NO; GENERATE_INFOPLIST_FILE = YES; PRODUCT_BUNDLE_IDENTIFIER = com.example.EPUBTranslatorAppStore.Dev.Tests; PRODUCT_NAME = EPUBTranslatorTests; SWIFT_VERSION = 5.0; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EPUB翻译.app/Contents/MacOS/EPUB翻译"; }; name = Debug; };
+		I10000000000000000000008 /* Tests Release */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGNING_ALLOWED = NO; GENERATE_INFOPLIST_FILE = YES; PRODUCT_BUNDLE_IDENTIFIER = com.example.EPUBTranslatorAppStore.Dev.Tests; PRODUCT_NAME = EPUBTranslatorTests; SWIFT_VERSION = 5.0; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EPUB翻译.app/Contents/MacOS/EPUB翻译"; }; name = Release; };
+		I10000000000000000000009 /* UI Tests Debug */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; PRODUCT_BUNDLE_IDENTIFIER = com.example.EPUBTranslatorAppStore.Dev.UITests; PRODUCT_NAME = EPUBTranslatorUITests; SWIFT_VERSION = 5.0; TEST_TARGET_NAME = EPUBTranslatorApp; }; name = Debug; };
+		I1000000000000000000000A /* UI Tests Release */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; PRODUCT_BUNDLE_IDENTIFIER = com.example.EPUBTranslatorAppStore.Dev.UITests; PRODUCT_NAME = EPUBTranslatorUITests; SWIFT_VERSION = 5.0; TEST_TARGET_NAME = EPUBTranslatorApp; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		H10000000000000000000001 /* Project configs */ = {isa = XCConfigurationList; buildConfigurations = (I10000000000000000000001, I10000000000000000000002, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		H10000000000000000000002 /* App configs */ = {isa = XCConfigurationList; buildConfigurations = (I10000000000000000000003, I10000000000000000000004, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		H10000000000000000000003 /* Helper configs */ = {isa = XCConfigurationList; buildConfigurations = (I10000000000000000000005, I10000000000000000000006, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		H10000000000000000000004 /* Test configs */ = {isa = XCConfigurationList; buildConfigurations = (I10000000000000000000007, I10000000000000000000008, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		H10000000000000000000005 /* UI Test configs */ = {isa = XCConfigurationList; buildConfigurations = (I10000000000000000000009, I1000000000000000000000A, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = D10000000000000000000001 /* Project object */;
+}
