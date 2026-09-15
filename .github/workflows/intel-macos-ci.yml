@@ -1,0 +1,97 @@
+name: Intel macOS release preparation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/intel-macos-release-prep
+
+permissions:
+  contents: read
+
+concurrency:
+  group: intel-macos-release-prep-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  intel-native:
+    name: Native Intel build, tests, GUI, and candidate
+    runs-on: macos-15-intel
+    timeout-minutes: 45
+    env:
+      SOURCE_COMMIT: ${{ github.sha }}
+      INTEL_CANDIDATE_OUTPUT_DIR: ${{ github.workspace }}/release/intel-macos-candidate
+    steps:
+      - name: Checkout audited public source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Record native environment
+        run: |
+          sw_vers
+          uname -m
+          xcodebuild -version
+          xcrun --sdk macosx --show-sdk-version
+          test "$(uname -m)" = "x86_64"
+
+      - name: Privacy and source safety scan
+        run: ./scripts/security-scan.sh
+
+      - name: Run 71 native Intel unit and integration tests
+        run: ./scripts/test_intel.sh
+
+      - name: Run 7 native Intel GUI tests
+        run: ./scripts/test_intel_ui.sh
+
+      - name: Build x86_64 Release app
+        run: ./scripts/build_intel_release.sh
+
+      - name: Package Intel candidate
+        run: ./scripts/package_intel_candidate.sh
+
+      - name: Reverify ZIP and DMG
+        run: ./scripts/verify_intel_candidate.sh
+
+      - name: Upload short-lived candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: EPUB-Translator-macOS-Intel-candidate-${{ github.sha }}
+          path: release/intel-macos-candidate/
+          if-no-files-found: error
+          retention-days: 3
+
+  arm64-regression:
+    name: Apple Silicon regression
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - name: Checkout audited public source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Confirm native arm64 environment
+        run: |
+          sw_vers
+          uname -m
+          xcodebuild -version
+          test "$(uname -m)" = "arm64"
+
+      - name: Privacy and source safety scan
+        run: ./scripts/security-scan.sh
+
+      - name: Run 71 Apple Silicon unit and integration tests
+        env:
+          DERIVED_DATA_PATH: ${{ github.workspace }}/build/arm64-regression/UnitDerivedData
+        run: ./scripts/test.sh
+
+      - name: Run 7 Apple Silicon GUI tests
+        env:
+          DERIVED_DATA_PATH: ${{ github.workspace }}/build/arm64-regression/UIDerivedData
+        run: ./scripts/test-ui.sh
+
+      - name: Build Apple Silicon regression app
+        env:
+          DERIVED_DATA_PATH: ${{ github.workspace }}/build/arm64-regression/BuildDerivedData
+        run: ./scripts/build.sh
