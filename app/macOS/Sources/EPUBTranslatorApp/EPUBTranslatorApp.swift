@@ -12,27 +12,38 @@ struct EPUBTranslatorApp: App {
         #endif
     }
 
+    @SceneBuilder
     var body: some Scene {
-        WindowGroup("EPUB翻译") {
-            rootContent
+        #if DEBUG
+        if Self.isHostedUnitTest {
+            Settings { EmptyView() }
+        } else {
+            mainWindow
         }
-        .windowResizability(.contentMinSize)
-        .commands {
-            CommandMenu("导航") {
-                Button("翻译") {
-                    NotificationCenter.default.post(name: .showTranslationPage, object: nil)
-                }
-                .keyboardShortcut("1", modifiers: .command)
+        #else
+        mainWindow
+        #endif
+    }
 
-                Button("API 管理") {
-                    NotificationCenter.default.post(name: .showAPIManagerPage, object: nil)
+    private var mainWindow: some Scene {
+        WindowGroup("EPUB翻译") { rootContent }
+            .windowResizability(.contentMinSize)
+            .commands {
+                CommandMenu("导航") {
+                    Button("翻译") {
+                        NotificationCenter.default.post(name: .showTranslationPage, object: nil)
+                    }
+                    .keyboardShortcut("1", modifiers: .command)
+
+                    Button("API 管理") {
+                        NotificationCenter.default.post(name: .showAPIManagerPage, object: nil)
+                    }
+                    .keyboardShortcut("2", modifiers: .command)
                 }
-                .keyboardShortcut("2", modifiers: .command)
+                CommandGroup(replacing: .help) {
+                    Button("反馈问题…") { SupportLinks.openIssues() }
+                }
             }
-            CommandGroup(replacing: .help) {
-                Button("反馈问题…") { SupportLinks.openIssues() }
-            }
-        }
     }
 
     @ViewBuilder
@@ -49,6 +60,11 @@ struct EPUBTranslatorApp: App {
     }
 
     #if DEBUG
+    private static var isHostedUnitTest: Bool {
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+            && ProcessInfo.processInfo.environment["EPUB_TRANSLATOR_UI_TESTING"] != "1"
+    }
+
     private static func runProbeIfRequested() {
         let arguments = CommandLine.arguments
         guard arguments.count >= 2 else { return }
