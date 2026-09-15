@@ -14,8 +14,7 @@ let package = Package(
             name: "EPUBTranslatorApp",
             path: "app/macOS/Sources/EPUBTranslatorApp",
             exclude: [
-                "ContentViewRedesigned.swift",
-                "DesignSystem.swift",
+                "Assets.xcassets",
                 "EPUBTranslatorApp.swift",
             ]
         ),
