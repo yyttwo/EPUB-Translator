@@ -238,7 +238,20 @@ struct AppSectionHeading: View {
 struct ArchitecturalLineworkBackground: View {
     let variant: Int
 
+    @ViewBuilder
     var body: some View {
+        #if DEBUG && arch(x86_64)
+        if ProcessInfo.processInfo.environment["EPUB_TRANSLATOR_UI_TESTING"] == "1" {
+            Color.clear
+        } else {
+            renderedBackground
+        }
+        #else
+        renderedBackground
+        #endif
+    }
+
+    private var renderedBackground: some View {
         GeometryReader { proxy in
             Canvas { context, size in
                 drawPlan(in: &context, size: size)
