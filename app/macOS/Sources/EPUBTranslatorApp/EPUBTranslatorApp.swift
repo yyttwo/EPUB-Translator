@@ -38,9 +38,7 @@ struct EPUBTranslatorApp: App {
     @ViewBuilder
     private var rootContent: some View {
         #if DEBUG
-        if Self.isHostedUnitTest {
-            EmptyView()
-        } else if CommandLine.arguments.contains("--ui-light-preview") {
+        if CommandLine.arguments.contains("--ui-light-preview") {
             ContentView().preferredColorScheme(.light)
         } else {
             ContentView()
@@ -51,11 +49,6 @@ struct EPUBTranslatorApp: App {
     }
 
     #if DEBUG
-    private static var isHostedUnitTest: Bool {
-        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
-            && ProcessInfo.processInfo.environment["EPUB_TRANSLATOR_UI_TESTING"] != "1"
-    }
-
     private static func runProbeIfRequested() {
         let arguments = CommandLine.arguments
         guard arguments.count >= 2 else { return }

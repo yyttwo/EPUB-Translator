@@ -3,29 +3,27 @@ set -euo pipefail
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 repo_root="$(cd "$script_dir/.." && pwd)"
-derived_data="${DERIVED_DATA_PATH:-$repo_root/build/intel-macos/UnitDerivedData}"
+scratch_path="${SWIFT_SCRATCH_PATH:-$repo_root/build/intel-macos/SwiftPM}"
 
 if [[ "$(/usr/bin/uname -m)" != "x86_64" ]]; then
   echo "Native Intel tests require an x86_64 macOS host." >&2
   exit 1
 fi
 
-/usr/bin/xcodebuild \
-  -project "$repo_root/app/macOS/EPUBTranslator.xcodeproj" \
-  -scheme EPUBTranslator \
-  -configuration Debug \
-  -destination 'platform=macOS,arch=x86_64' \
-  -derivedDataPath "$derived_data" \
-  -only-testing:EPUBTranslatorTests \
-  CODE_SIGN_IDENTITY=- \
-  CODE_SIGN_STYLE=Manual \
-  CODE_SIGNING_ALLOWED=YES \
-  CODE_SIGN_INJECT_BASE_ENTITLEMENTS=NO \
-  ENABLE_TESTABILITY=YES \
-  SWIFT_OPTIMIZATION_LEVEL=-Onone \
-  COMPILER_INDEX_STORE_ENABLE=NO \
-  ARCHS=x86_64 \
-  ONLY_ACTIVE_ARCH=YES \
-  test
+cd "$repo_root"
+/usr/bin/swift build \
+  --scratch-path "$scratch_path" \
+  --arch x86_64 \
+  --product EPUBTranslatorHelper
+
+bin_path="$(/usr/bin/swift build --scratch-path "$scratch_path" --arch x86_64 --show-bin-path)"
+helper_path="$bin_path/EPUBTranslatorHelper"
+test -x "$helper_path"
+test "$(/usr/bin/lipo -archs "$helper_path")" = "x86_64"
+
+EPUB_TRANSLATOR_TEST_HELPER_PATH="$helper_path" \
+  /usr/bin/swift test \
+    --scratch-path "$scratch_path" \
+    --arch x86_64
 
 echo "INTEL_NATIVE_TESTS=PASS"

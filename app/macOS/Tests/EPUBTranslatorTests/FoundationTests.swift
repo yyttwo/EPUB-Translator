@@ -984,6 +984,10 @@ final class SecurityAndIdentityTests: XCTestCase {
 
 final class HelperClientTests: XCTestCase {
     private func helperURL() -> URL {
+        if let override = ProcessInfo.processInfo.environment["EPUB_TRANSLATOR_TEST_HELPER_PATH"],
+           !override.isEmpty {
+            return URL(fileURLWithPath: override)
+        }
         Bundle.main.bundleURL
             .appendingPathComponent("Contents", isDirectory: true)
             .appendingPathComponent("Helpers", isDirectory: true)
