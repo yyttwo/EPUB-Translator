@@ -10,7 +10,39 @@ fail=0
 check_pattern() {
   local label="$1"
   local pattern="$2"
-  if rg -n --hidden --glob '!.git/**' --glob '!build/**' "$pattern" .; then
+  local insensitive=0
+  if [[ "$pattern" == '(?i)'* ]]; then
+    insensitive=1
+    pattern="${pattern#'(i)'}"
+    pattern="${pattern#'(?i)'}"
+  fi
+
+  if command -v rg >/dev/null 2>&1; then
+    local rg_options=(-n --hidden --glob '!.git/**' --glob '!build/**')
+    if [[ "$insensitive" -eq 1 ]]; then
+      rg_options+=(-i)
+    fi
+    if rg "${rg_options[@]}" "$pattern" .; then
+      echo "FAILED: $label"
+      fail=1
+    else
+      echo "PASS: $label"
+    fi
+    return
+  fi
+
+  local grep_options=(-n -E -I)
+  if [[ "$insensitive" -eq 1 ]]; then
+    grep_options+=(-i)
+  fi
+  local found=0
+  while IFS= read -r -d '' candidate; do
+    if /usr/bin/grep "${grep_options[@]}" "$pattern" "$candidate"; then
+      found=1
+    fi
+  done < <(find . -type f -not -path './.git/*' -not -path './build/*' -print0)
+
+  if [[ "$found" -eq 1 ]]; then
     echo "FAILED: $label"
     fail=1
   else

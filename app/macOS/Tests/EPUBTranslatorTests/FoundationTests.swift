@@ -988,7 +988,7 @@ final class HelperClientTests: XCTestCase {
            !override.isEmpty {
             return URL(fileURLWithPath: override)
         }
-        Bundle.main.bundleURL
+        return Bundle.main.bundleURL
             .appendingPathComponent("Contents", isDirectory: true)
             .appendingPathComponent("Helpers", isDirectory: true)
             .appendingPathComponent(AppIdentity.helperName)
