@@ -12,44 +12,35 @@ struct EPUBTranslatorApp: App {
         #endif
     }
 
-    @SceneBuilder
     var body: some Scene {
-        #if DEBUG
-        if Self.isHostedUnitTest {
-            Settings { EmptyView() }
-        } else {
-            mainWindow
+        WindowGroup("EPUB翻译") {
+            rootContent
         }
-        #else
-        mainWindow
-        #endif
-    }
-
-    private var mainWindow: some Scene {
-        WindowGroup("EPUB翻译") { rootContent }
-            .windowResizability(.contentMinSize)
-            .commands {
-                CommandMenu("导航") {
-                    Button("翻译") {
-                        NotificationCenter.default.post(name: .showTranslationPage, object: nil)
-                    }
-                    .keyboardShortcut("1", modifiers: .command)
-
-                    Button("API 管理") {
-                        NotificationCenter.default.post(name: .showAPIManagerPage, object: nil)
-                    }
-                    .keyboardShortcut("2", modifiers: .command)
+        .windowResizability(.contentMinSize)
+        .commands {
+            CommandMenu("导航") {
+                Button("翻译") {
+                    NotificationCenter.default.post(name: .showTranslationPage, object: nil)
                 }
-                CommandGroup(replacing: .help) {
-                    Button("反馈问题…") { SupportLinks.openIssues() }
+                .keyboardShortcut("1", modifiers: .command)
+
+                Button("API 管理") {
+                    NotificationCenter.default.post(name: .showAPIManagerPage, object: nil)
                 }
+                .keyboardShortcut("2", modifiers: .command)
             }
+            CommandGroup(replacing: .help) {
+                Button("反馈问题…") { SupportLinks.openIssues() }
+            }
+        }
     }
 
     @ViewBuilder
     private var rootContent: some View {
         #if DEBUG
-        if CommandLine.arguments.contains("--ui-light-preview") {
+        if Self.isHostedUnitTest {
+            EmptyView()
+        } else if CommandLine.arguments.contains("--ui-light-preview") {
             ContentView().preferredColorScheme(.light)
         } else {
             ContentView()
