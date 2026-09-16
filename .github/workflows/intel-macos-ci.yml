@@ -173,7 +173,10 @@ jobs:
           scan_email_content() {
             local root="$1"
             while IFS= read -r item; do
-              if strings "$item" | grep -E "$private_email_pattern" >/dev/null 2>&1; then
+              if strings "$item" \
+                | grep -Eo "$private_email_pattern" \
+                | grep -Ev '@[0-9]+x\.(png|jpe?g|gif|webp|heic|tiff?|pdf|svg)$' \
+                | grep -q .; then
                 return 1
               fi
             done < <(find "$root" -type f -print)
