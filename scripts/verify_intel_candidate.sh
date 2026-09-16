@@ -110,7 +110,7 @@ dmg_attached=0
 launch_app="$(cd "$(/usr/bin/dirname "$zip_app")" && /bin/pwd -P)/$(/usr/bin/basename "$zip_app")"
 launch_executable="$launch_app/Contents/MacOS/EPUB翻译"
 launch_log="$temporary/launch.log"
-if ! /usr/bin/open -n "$launch_app" >"$launch_log" 2>&1; then
+if ! /usr/bin/open -n -F "$launch_app" >"$launch_log" 2>&1; then
   /bin/cat "$launch_log" >&2
   echo "LaunchServices rejected the candidate app." >&2
   exit 1
