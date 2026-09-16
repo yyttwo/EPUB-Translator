@@ -10,9 +10,18 @@ expected_manifest="$(/usr/bin/find "$output_dir" -maxdepth 1 -type f -name '*-ap
 temporary="$(/usr/bin/mktemp -d "${TMPDIR:-/tmp}/epub-intel-verify.XXXXXX")"
 zip_extract="$temporary/zip"
 dmg_mount="$temporary/dmg"
+dmg_attached=0
+launch_wait_pid=""
+launch_app_pid=""
 
 cleanup() {
-  if /sbin/mount | /usr/bin/grep -Fq " on $dmg_mount "; then
+  if [[ -n "$launch_app_pid" ]] && /bin/kill -0 "$launch_app_pid" 2>/dev/null; then
+    /bin/kill -TERM "$launch_app_pid" 2>/dev/null || true
+  fi
+  if [[ -n "$launch_wait_pid" ]] && /bin/kill -0 "$launch_wait_pid" 2>/dev/null; then
+    /bin/kill -TERM "$launch_wait_pid" 2>/dev/null || true
+  fi
+  if [[ "$dmg_attached" -eq 1 ]]; then
     /usr/bin/hdiutil detach "$dmg_mount" -quiet || true
   fi
   /bin/rm -rf "$temporary"
@@ -25,6 +34,7 @@ test -f "$expected_manifest"
 /bin/mkdir -p "$zip_extract" "$dmg_mount"
 /usr/bin/ditto -x -k "$zip_path" "$zip_extract"
 /usr/bin/hdiutil attach -quiet -readonly -nobrowse -mountpoint "$dmg_mount" "$dmg_path"
+dmg_attached=1
 
 zip_app="$(/usr/bin/find "$zip_extract" -type d -name 'EPUB翻译.app' -print -quit)"
 dmg_app="$(/usr/bin/find "$dmg_mount" -maxdepth 2 -type d -name 'EPUB翻译.app' -print -quit)"
@@ -82,16 +92,64 @@ if /usr/bin/grep -R -a -E "$private_path_pattern|$secret_pattern" \
   exit 1
 fi
 
-launch_app="$zip_app"
-"$launch_app/Contents/MacOS/EPUB翻译" >/dev/null 2>&1 &
-launch_pid=$!
-/bin/sleep 4
-if ! /bin/kill -0 "$launch_pid" 2>/dev/null; then
-  echo "Candidate app did not remain running during launch smoke." >&2
+/usr/bin/hdiutil detach "$dmg_mount" -quiet
+dmg_attached=0
+
+launch_app="$(cd "$(/usr/bin/dirname "$zip_app")" && /bin/pwd -P)/$(/usr/bin/basename "$zip_app")"
+launch_executable="$launch_app/Contents/MacOS/EPUB翻译"
+launch_log="$temporary/launch.log"
+/usr/bin/open -n -W "$launch_app" >"$launch_log" 2>&1 &
+launch_wait_pid=$!
+
+for _ in {1..15}; do
+  if ! /bin/kill -0 "$launch_wait_pid" 2>/dev/null; then
+    wait "$launch_wait_pid" 2>/dev/null || true
+    /bin/cat "$launch_log" >&2
+    echo "Candidate app exited during LaunchServices startup." >&2
+    exit 1
+  fi
+  launch_app_pid="$(/bin/ps -axo pid=,command= | /usr/bin/awk -v expected="$launch_executable" '$2 == expected { print $1; exit }')"
+  if [[ -n "$launch_app_pid" ]]; then
+    break
+  fi
+  /bin/sleep 1
+done
+
+if [[ -z "$launch_app_pid" ]]; then
+  /bin/cat "$launch_log" >&2
+  echo "Candidate app did not start within 15 seconds." >&2
   exit 1
 fi
-/bin/kill -TERM "$launch_pid"
-wait "$launch_pid" 2>/dev/null || true
+
+for _ in {1..4}; do
+  /bin/sleep 1
+  if ! /bin/kill -0 "$launch_app_pid" 2>/dev/null; then
+    /bin/cat "$launch_log" >&2
+    echo "Candidate app did not remain running during launch smoke." >&2
+    exit 1
+  fi
+done
+
+/bin/kill -TERM "$launch_app_pid"
+for _ in {1..10}; do
+  if ! /bin/kill -0 "$launch_app_pid" 2>/dev/null; then
+    break
+  fi
+  /bin/sleep 1
+done
+if /bin/kill -0 "$launch_app_pid" 2>/dev/null; then
+  /bin/kill -KILL "$launch_app_pid" 2>/dev/null || true
+  echo "Candidate app did not exit within 10 seconds." >&2
+  exit 1
+fi
+wait "$launch_wait_pid" 2>/dev/null || true
+launch_wait_pid=""
+launch_app_pid=""
+
+if [[ -d "$dmg_mount/EPUB翻译.app" ]]; then
+  echo "DMG remained mounted after verification." >&2
+  exit 1
+fi
 
 echo "PACKAGED_APP_MATCHES_TESTED_APP=YES"
 echo "CODESIGN_VERIFY=PASS"
