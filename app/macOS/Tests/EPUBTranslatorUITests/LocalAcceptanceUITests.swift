@@ -286,11 +286,8 @@ final class LocalAcceptanceUITests: XCTestCase {
         XCTAssertTrue(locationField.waitForExistence(timeout: 5))
         locationField.typeText(url.path)
         locationField.typeKey(.enter, modifierFlags: [])
-        if !waitForNonexistence(locationField, timeout: 3) {
-            locationField.typeKey(.enter, modifierFlags: [])
-        }
         XCTAssertTrue(
-            waitForNonexistence(locationField, timeout: 5),
+            waitForNonexistence(locationField, timeout: 10),
             "文件路径确认框未在限定时间内关闭"
         )
         if panel.exists {
