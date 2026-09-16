@@ -50,16 +50,140 @@ jobs:
       - name: Package Intel candidate
         run: ./scripts/package_intel_candidate.sh
 
-      - name: Reverify ZIP and DMG
-        run: ./scripts/verify_intel_candidate.sh
+      - name: Mark candidate unverified and refresh checksums
+        run: |
+          output_dir="$INTEL_CANDIDATE_OUTPUT_DIR"
+          manifest="$(find "$output_dir" -maxdepth 1 -type f -name '*-manifest.json' -print -quit)"
+          bundle_manifest="$(find "$output_dir" -maxdepth 1 -type f -name '*-app-bundle-manifest.txt' -print -quit)"
+          dmg="$(find "$output_dir" -maxdepth 1 -type f -name '*-macOS-Intel.dmg' -print -quit)"
+          zip="$(find "$output_dir" -maxdepth 1 -type f -name '*-macOS-Intel.zip' -print -quit)"
+          test -f "$manifest"
+          test -f "$bundle_manifest"
+          test -f "$dmg"
+          test -f "$zip"
 
-      - name: Upload short-lived candidate
+          sed -i '' '$d' "$manifest"
+          sed -i '' '$s/$/,/' "$manifest"
+          cat >> "$manifest" <<'EOF'
+            "candidate_status": "AWAITING_STRICT_LAUNCH_VERIFICATION",
+            "ready_for_publication": false,
+            "strict_launch_verification": "pending"
+          }
+          EOF
+
+          dmg_sha256="$(shasum -a 256 "$dmg" | awk '{print $1}')"
+          zip_sha256="$(shasum -a 256 "$zip" | awk '{print $1}')"
+          {
+            printf '%s  %s\n' "$dmg_sha256" "$(basename "$dmg")"
+            printf '%s  %s\n' "$zip_sha256" "$(basename "$zip")"
+            printf '%s  %s\n' "$(shasum -a 256 "$bundle_manifest" | awk '{print $1}')" "$(basename "$bundle_manifest")"
+            printf '%s  %s\n' "$(shasum -a 256 "$manifest" | awk '{print $1}')" "$(basename "$manifest")"
+          } > "$output_dir/SHA256SUMS.txt"
+
+          echo "UNVERIFIED_DMG_SHA256=$dmg_sha256"
+          echo "UNVERIFIED_ZIP_SHA256=$zip_sha256"
+
+      - name: Pre-upload architecture, signature, privacy, and package verification
+        run: |
+          output_dir="$INTEL_CANDIDATE_OUTPUT_DIR"
+          dmg="$(find "$output_dir" -maxdepth 1 -type f -name '*-macOS-Intel.dmg' -print -quit)"
+          zip="$(find "$output_dir" -maxdepth 1 -type f -name '*-macOS-Intel.zip' -print -quit)"
+          manifest="$(find "$output_dir" -maxdepth 1 -type f -name '*-manifest.json' -print -quit)"
+          expected_manifest="$(find "$output_dir" -maxdepth 1 -type f -name '*-app-bundle-manifest.txt' -print -quit)"
+          temporary="$(mktemp -d "${TMPDIR:-/tmp}/epub-intel-preupload.XXXXXX")"
+          zip_extract="$temporary/zip"
+          dmg_mount="$temporary/dmg"
+          dmg_attached=0
+          cleanup() {
+            if [[ "$dmg_attached" -eq 1 ]]; then
+              hdiutil detach "$dmg_mount" -quiet || true
+            fi
+            rm -rf "$temporary"
+          }
+          trap cleanup EXIT
+
+          test -f "$dmg"
+          test -f "$zip"
+          test -f "$manifest"
+          test -f "$expected_manifest"
+          test "$(plutil -extract source_commit raw -o - "$manifest")" = "$GITHUB_SHA"
+          test "$(plutil -extract candidate_status raw -o - "$manifest")" = "AWAITING_STRICT_LAUNCH_VERIFICATION"
+          test "$(plutil -extract ready_for_publication raw -o - "$manifest")" = "false"
+          test "$(plutil -extract strict_launch_verification raw -o - "$manifest")" = "pending"
+          (
+            cd "$output_dir"
+            shasum -a 256 -c SHA256SUMS.txt
+          )
+
+          mkdir -p "$zip_extract" "$dmg_mount"
+          ditto -x -k "$zip" "$zip_extract"
+          hdiutil attach -quiet -readonly -nobrowse -mountpoint "$dmg_mount" "$dmg"
+          dmg_attached=1
+          zip_app="$(find "$zip_extract" -type d -name 'EPUB翻译.app' -print -quit)"
+          dmg_app="$(find "$dmg_mount" -maxdepth 2 -type d -name 'EPUB翻译.app' -print -quit)"
+          test -d "$zip_app"
+          test -d "$dmg_app"
+
+          canonical_bundle_manifest() {
+            local bundle="$1"
+            while IFS= read -r item; do
+              local relative="${item#$bundle/}"
+              if [[ -L "$item" ]]; then
+                printf 'L  %s  %s\n' "$(readlink "$item")" "$relative"
+              elif [[ -f "$item" ]]; then
+                printf 'F  %s  %s\n' "$(shasum -a 256 "$item" | awk '{print $1}')" "$relative"
+              fi
+            done < <(find "$bundle" \( -type f -o -type l \) -print | LC_ALL=C sort)
+          }
+
+          canonical_bundle_manifest "$zip_app" > "$temporary/zip-manifest.txt"
+          canonical_bundle_manifest "$dmg_app" > "$temporary/dmg-manifest.txt"
+          cmp "$expected_manifest" "$temporary/zip-manifest.txt"
+          cmp "$expected_manifest" "$temporary/dmg-manifest.txt"
+
+          verify_bundle() {
+            local app="$1"
+            codesign --verify --deep --strict --verbose=2 "$app"
+            while IFS= read -r item; do
+              if file -b "$item" | grep -q '^Mach-O'; then
+                test "$(lipo -archs "$item")" = "x86_64"
+              fi
+            done < <(find "$app" -type f -print)
+          }
+          verify_bundle "$zip_app"
+          verify_bundle "$dmg_app"
+
+          if find "$output_dir" "$zip_extract" "$dmg_mount" \
+            \( -name '.git' -o -name '*.swift' -o -name '*.xcodeproj' -o -name '*.xcworkspace' \
+               -o -name '*.dSYM' -o -name '*.epub' -o -name '*.log' -o -name '*.sqlite' \
+               -o -name '*.sqlite3' -o -name '*.db' -o -name '*.checkpoint' \) -print | grep -q .; then
+            echo "Forbidden source, debug, user-data, or runtime file found in candidate." >&2
+            exit 1
+          fi
+          private_path_pattern='/(Users|home)/[^/[:space:]]+'
+          private_email_pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
+          secret_pattern='gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9_-]{16,}'
+          if grep -R -a -E "$private_path_pattern|$private_email_pattern|$secret_pattern" \
+            "$output_dir" "$zip_extract" "$dmg_mount" >/dev/null 2>&1; then
+            echo "Private path, email, or secret-like content found in candidate." >&2
+            exit 1
+          fi
+
+          hdiutil detach "$dmg_mount" -quiet
+          dmg_attached=0
+          echo "PREUPLOAD_PACKAGE_VALIDATION=PASS"
+          echo "ARTIFACT_BYTES_MATCH_VERIFIED_CANDIDATE=YES"
+
+      - name: Upload UNVERIFIED short-lived candidate
         uses: actions/upload-artifact@v4
         with:
-          name: EPUB-Translator-macOS-Intel-candidate-${{ github.sha }}
+          name: EPUB-Translator-Intel-UNVERIFIED-${{ github.sha }}
           path: release/intel-macos-candidate/
           if-no-files-found: error
-          retention-days: 3
+          retention-days: 1
+
+      - name: Strict candidate launch verification
+        run: ./scripts/verify_intel_candidate.sh
 
   arm64-regression:
     name: Apple Silicon regression
