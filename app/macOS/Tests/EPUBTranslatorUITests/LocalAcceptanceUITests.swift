@@ -284,20 +284,21 @@ final class LocalAcceptanceUITests: XCTestCase {
         app.typeKey("g", modifierFlags: [.command, .shift])
         let locationField = app.sheets.textFields.firstMatch
         XCTAssertTrue(locationField.waitForExistence(timeout: 5))
-        locationField.typeText(url.path)
+        let directoryPath = url.deletingLastPathComponent().path
+        locationField.typeText(directoryPath)
         XCTAssertTrue(
-            waitForValue(url.path, element: locationField),
-            "文件路径未在限定时间内完整写入"
+            waitForValue(directoryPath, element: locationField),
+            "文件目录未在限定时间内完整写入"
         )
         locationField.typeKey(.return, modifierFlags: [])
         XCTAssertTrue(
             waitForNonexistence(locationField, timeout: 10),
-            "文件路径确认框未在限定时间内关闭"
+            "文件目录确认框未在限定时间内关闭"
         )
-        if panel.exists {
-            panel.typeKey(.return, modifierFlags: [])
-        }
-        XCTAssertTrue(waitForNonexistence(panel, timeout: 5))
+        let file = panel.staticTexts[url.lastPathComponent].firstMatch
+        XCTAssertTrue(file.waitForExistence(timeout: 10), "测试 EPUB 未在文件面板中出现")
+        file.doubleClick()
+        XCTAssertTrue(waitForNonexistence(panel, timeout: 10))
     }
 
     private func pasteSecureText(_ text: String, into element: XCUIElement) {
