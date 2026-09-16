@@ -285,13 +285,17 @@ final class LocalAcceptanceUITests: XCTestCase {
         let locationField = app.sheets.textFields.firstMatch
         XCTAssertTrue(locationField.waitForExistence(timeout: 5))
         locationField.typeText(url.path)
-        locationField.typeKey(.enter, modifierFlags: [])
+        XCTAssertTrue(
+            waitForValue(url.path, element: locationField),
+            "文件路径未在限定时间内完整写入"
+        )
+        locationField.typeKey(.return, modifierFlags: [])
         XCTAssertTrue(
             waitForNonexistence(locationField, timeout: 10),
             "文件路径确认框未在限定时间内关闭"
         )
         if panel.exists {
-            app.typeKey(.enter, modifierFlags: [])
+            panel.typeKey(.return, modifierFlags: [])
         }
         XCTAssertTrue(waitForNonexistence(panel, timeout: 5))
     }
