@@ -295,7 +295,12 @@ final class LocalAcceptanceUITests: XCTestCase {
             waitForNonexistence(locationField, timeout: 10),
             "文件目录确认框未在限定时间内关闭"
         )
-        let file = panel.staticTexts[url.lastPathComponent].firstMatch
+        let file = panel.descendants(matching: .any).matching(NSPredicate(
+            format: "identifier == %@ OR label == %@ OR value == %@",
+            url.lastPathComponent,
+            url.lastPathComponent,
+            url.lastPathComponent
+        )).firstMatch
         XCTAssertTrue(file.waitForExistence(timeout: 10), "测试 EPUB 未在文件面板中出现")
         file.doubleClick()
         XCTAssertTrue(waitForNonexistence(panel, timeout: 10))
