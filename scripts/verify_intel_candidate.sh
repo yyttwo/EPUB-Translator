@@ -13,6 +13,7 @@ dmg_mount="$temporary/dmg"
 dmg_attached=0
 launch_app_pid=""
 launch_executable=""
+launch_process_start=""
 
 candidate_pids() {
   [[ -n "$launch_executable" ]] || return 0
@@ -22,7 +23,10 @@ candidate_pids() {
 
 candidate_pid_is_running() {
   local pid="$1"
-  candidate_pids | /usr/bin/awk -v expected_pid="$pid" '$1 == expected_pid { found = 1 } END { exit !found }'
+  local current_start
+  /bin/kill -0 "$pid" 2>/dev/null || return 1
+  current_start="$(/bin/ps -p "$pid" -o lstart= | /usr/bin/sed 's/^[[:space:]]*//; s/[[:space:]]*$//')" || return 1
+  [[ -n "$launch_process_start" && "$current_start" == "$launch_process_start" ]]
 }
 
 cleanup() {
@@ -115,6 +119,12 @@ fi
 for _ in {1..15}; do
   launch_app_pid="$(candidate_pids | /usr/bin/awk 'NR == 1 { first = $1 } END { print first }')"
   if [[ -n "$launch_app_pid" ]]; then
+    launch_process_start="$(/bin/ps -p "$launch_app_pid" -o lstart= | /usr/bin/sed 's/^[[:space:]]*//; s/[[:space:]]*$//')" || launch_process_start=""
+    if [[ -z "$launch_process_start" ]]; then
+      launch_app_pid=""
+    fi
+  fi
+  if [[ -n "$launch_app_pid" ]]; then
     break
   fi
   /bin/sleep 1
@@ -148,6 +158,7 @@ if candidate_pid_is_running "$launch_app_pid"; then
   exit 1
 fi
 launch_app_pid=""
+launch_process_start=""
 
 orphan_process_count="$(candidate_pids | /usr/bin/awk 'END { print NR + 0 }')"
 if [[ "$orphan_process_count" -ne 0 ]]; then
