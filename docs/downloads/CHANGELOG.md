@@ -11,11 +11,12 @@
 - 纯网址、邮箱、文件名和编号等技术单元会原样保留，不再误判为漏翻
 - 保持 EPUB 封面、书内图片、内嵌 SVG、章节、链接和基本排版结构
 - 免费、无广告、无订阅；继续支持 Qwen、DeepSeek 与四种翻译模式
+- 新增经过真实 Intel Mac 验收的 `x86_64` DMG 与 ZIP；功能和版本号与 Apple 芯片版一致
 
 ### 已知限制
 
 - 仅支持 DRM-free EPUB，不支持 PDF、DOCX、MOBI、AZW 或 DRM 移除
-- 仅提供 Apple 芯片构建
+- Apple 芯片版与 Intel 版需要分别下载，不是通用二进制包
 - 当前安装包未做 Apple Developer ID 签名或 Apple 公证
 - 复杂 EPUB 的视觉排版可能与原始文件存在细微差异
 - 翻译质量、速度、可用性和费用取决于用户选择的第三方 AI 服务

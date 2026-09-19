@@ -8,12 +8,14 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 
 | 平台 | 推荐下载 | 版本状态 | 适用设备 |
 | --- | --- | --- | --- |
-| macOS | [下载 v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) | 正式版 | Apple 芯片 Mac（M1/M2/M3/M4 系列） |
+| macOS（Apple 芯片） | [下载 v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) | 正式版 | M1/M2/M3/M4 系列及更新机型 |
+| macOS（Intel） | [下载 Intel v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1-macOS-Intel.dmg) | 正式版 | Intel 处理器 Mac |
 | Windows | [下载 x64 Preview ZIP](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0-preview.1/EPUB-Translator-Windows-x64-Preview-v0.1.0.zip) | 预览版 | Windows 11 x64（Intel/AMD） |
 
 其他下载：
 
 - [macOS v1.0.1 ZIP](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.zip)
+- [macOS Intel v1.0.1 ZIP](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1-macOS-Intel.zip)
 - [macOS v1.0.1 完整发布页](https://github.com/yyttwo/EPUB-Translator/releases/tag/v1.0.1)
 - [Windows x64 Preview 完整发布页](https://github.com/yyttwo/EPUB-Translator/releases/tag/windows-v0.1.0-preview.1)
 - [查看全部版本](https://github.com/yyttwo/EPUB-Translator/releases)
@@ -28,7 +30,7 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 
 ### macOS
 
-1. 下载 `EPUB-Translator-v1.0.1.dmg`。
+1. Apple 芯片 Mac 下载 `EPUB-Translator-v1.0.1.dmg`；Intel Mac 下载 `EPUB-Translator-v1.0.1-macOS-Intel.dmg`。
 2. 双击打开 DMG。
 3. 将“EPUB翻译.app”拖入“应用程序”文件夹。
 4. 从“应用程序”中打开 EPUB翻译。
@@ -50,6 +52,8 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 | --- | --- |
 | `EPUB-Translator-v1.0.1.dmg` | `141c054c1ed81cf89dd783089c711f4bca5b691a0186b3045ccaee11d87e6958` |
 | `EPUB-Translator-v1.0.1.zip` | `f077ebe0e59ec71bf3177779ac2eb58dead9d88b8f0f8cef2100947dcab9674e` |
+| `EPUB-Translator-v1.0.1-macOS-Intel.dmg` | `24668980d934220e657ea25151113d3542f568fde2f878c64d34c93303f122a8` |
+| `EPUB-Translator-v1.0.1-macOS-Intel.zip` | `9cd2e8c67250040e3b9635a34a110b20819fecaee41c80428c0acac278b093be` |
 | `EPUB-Translator-Windows-x64-Preview-v0.1.0.zip` | `cfb70c3bd886129131cd0a2a0b70fe63e4556401fbd4241de37e7e27cb85c0fe` |
 
 如果计算结果不同，请不要运行该文件，重新从本仓库 Releases 下载。
@@ -70,7 +74,8 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 ### macOS v1.0.1
 
 - macOS 13 Ventura 或更高版本。
-- Apple 芯片 Mac。
+- 提供 Apple 芯片版和 Intel `x86_64` 版，请按处理器选择对应下载。
+- Intel 版已通过真实 Intel Mac 启动和基本使用测试。
 - 当前公开正式版未签名、未公证。
 
 ### Windows x64 Preview v0.1.0

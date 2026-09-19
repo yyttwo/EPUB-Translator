@@ -7,11 +7,12 @@
 | 平台 | 下载 |
 | --- | --- |
 | Apple 芯片 Mac | [EPUB-Translator-v1.0.1.dmg](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) |
+| Intel Mac | [EPUB-Translator-v1.0.1-macOS-Intel.dmg](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1-macOS-Intel.dmg) |
 | Windows 11 x64（预览版） | [EPUB-Translator-Windows-x64-Preview-v0.1.0.zip](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0-preview.1/EPUB-Translator-Windows-x64-Preview-v0.1.0.zip) |
 
 ## 使用 DMG 安装（推荐）
 
-1. 从 [GitHub Releases](../../releases/tag/v1.0.1) 下载 `EPUB-Translator-v1.0.1.dmg`。
+1. 从 [GitHub Releases](../../releases/tag/v1.0.1) 下载与处理器对应的 DMG：Apple 芯片使用 `EPUB-Translator-v1.0.1.dmg`，Intel Mac 使用 `EPUB-Translator-v1.0.1-macOS-Intel.dmg`。
 2. 双击打开 DMG。
 3. 将“EPUB翻译.app”拖入 Finder 左侧的“应用程序”文件夹。
 4. 从“应用程序”中打开“EPUB翻译”。
@@ -30,7 +31,7 @@ v1.0.1 尚未经过 Apple Developer ID 签名或 Apple 公证，因此 macOS 可
 
 ## 使用 ZIP 安装
 
-如果更习惯 ZIP，可下载 `EPUB-Translator-v1.0.1.zip`，解压后将“EPUB翻译.app”拖入“应用程序”文件夹。DMG 仍是推荐方式。
+如果更习惯 ZIP，Apple 芯片可下载 `EPUB-Translator-v1.0.1.zip`，Intel Mac 可下载 `EPUB-Translator-v1.0.1-macOS-Intel.zip`。解压后将“EPUB翻译.app”拖入“应用程序”文件夹。DMG 仍是推荐方式。
 
 ## Windows x64 Preview
 
