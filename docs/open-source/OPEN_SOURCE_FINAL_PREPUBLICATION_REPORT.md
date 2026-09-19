@@ -1,58 +1,39 @@
-# Open-source final pre-publication report
+# 开源发布前最终报告
 
-Audit date: 2026-09-09
+审计日期：2026-09-09
+候选版本：1.0.1 (4)
 
-Candidate version: 1.0.1 (4)
+这是首次公开 macOS 源码前的历史审计记录，不包含凭据、私人路径、用户 EPUB 或私有 Git 历史。
 
-This report records the local pre-publication state. It contains no credentials, private paths, user EPUB data, or copied private Git history.
+## 许可证与归属
 
-## License and attribution
+- 仓库在 `LICENSE` 中包含完整的 Apache License 2.0 原文。
+- 项目归属记录在 `NOTICE` 中，并与 App 元数据一致。
+- 未发现需要额外再分发许可的第三方源码、软件包、字体、模型、SDK 或参考截图。
+- 自制 EPUB Fixture 包含可读源文件和来源说明。
 
-- The repository contains the complete Apache License 2.0 text in `LICENSE`.
-- The `LICENSE` SHA-256 is `cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30`.
-- Project attribution is recorded in `NOTICE` and is consistent with the App metadata.
-- No bundled third-party source, package, font, model, SDK, or reference screenshot requires an additional redistribution license.
-- The self-authored EPUB fixture includes readable source and provenance.
+## 隐私与仓库隔离
 
-## Privacy and repository isolation
+- 本地静态扫描未发现真实密钥或私人信息。
+- 未包含真实用户 EPUB、运行数据、日志、检查点、数据库、发布二进制、符号链接或硬链接。
+- 未复制私有仓库历史、Git 对象替代库或私有远程地址。
 
-- Local static scans found zero exposed secrets and zero private-information matches.
-- No real user EPUB, runtime data, log, checkpoint, database, release binary, symlink, or hardlink is included.
-- No private repository history, Git object alternate, or private remote was copied.
-- The source repository has one new local root commit only and remains unpublished.
+## 验证结果
 
-## Verification
-
-| Gate | Result |
+| 门禁 | 结果 |
 | --- | --- |
-| Unit tests | 71 executed, 0 failures, 1 optional external-fixture test skipped |
-| UI acceptance tests | 7/7 passed, 0 failures |
-| Fresh-clone security scan | Passed |
-| Fresh-clone build | Passed |
-| Generated build output included in source commit | No |
+| 单元测试 | 执行 71 项，失败 0 项，跳过 1 项可选外部 Fixture 测试 |
+| 界面验收测试 | 7/7 通过 |
+| 全新副本安全扫描 | 通过 |
+| 全新副本构建 | 通过 |
+| 源码提交包含构建产物 | 否 |
 
-The optional unit-test skip requires a separately supplied external EPUB and is not needed for the self-contained public-source acceptance suite.
-
-## Final gates
-
-`LICENSE_SELECTED=Apache-2.0`
+## 最终结论
 
 `LICENSE_COMPLIANCE=PASS`
-
-`UI_TESTS=7/7 PASS`
-
-`UNIT_TESTS=PASS`
-
-`FRESH_BUILD=PASS`
-
 `SECRET_EXPOSURE=0`
-
 `PRIVATE_INFORMATION_EXPOSURE=0`
-
 `PRIVATE_GIT_HISTORY_COPIED=NO`
-
-`SOURCE_REPO_PUBLISHED=NO`
-
 `READY_FOR_OPEN_SOURCE_PUBLICATION=YES`
 
-Publication remains intentionally stopped pending the user's final confirmation.
+该候选随后已按用户确认公开；当前仓库现已扩展为 macOS 与 Windows 统一仓库。

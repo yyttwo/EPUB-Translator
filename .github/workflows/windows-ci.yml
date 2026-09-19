@@ -1,4 +1,4 @@
-name: Windows CI
+name: Windows 持续集成
 
 on:
   push:
@@ -26,7 +26,7 @@ env:
 
 jobs:
   x64-build-test:
-    name: Windows x64 build and tests
+    name: Windows x64 构建与测试
     runs-on: windows-latest
     timeout-minutes: 35
     defaults:
@@ -37,14 +37,14 @@ jobs:
       - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.0.x
-      - name: Restore
+      - name: 恢复依赖
         run: dotnet restore EPUBTranslator.Windows.sln -p:Platform=x64
-      - name: Build
+      - name: 构建
         run: dotnet build EPUBTranslator.Windows.sln --no-restore -c Release -p:Platform=x64 -p:PublishReadyToRun=false -p:AppxPackageSigningEnabled=false
-      - name: Core tests
+      - name: 核心测试
         run: dotnet test tests/EPUBTranslator.Core.Tests/EPUBTranslator.Core.Tests.csproj --no-restore -c Release -p:Platform=x64
-      - name: Windows tests
+      - name: Windows 平台测试
         run: dotnet test tests/EPUBTranslator.Windows.Tests/EPUBTranslator.Windows.Tests.csproj --no-restore -c Release -p:Platform=x64 -p:RuntimeIdentifier=win-x64
-      - name: Privacy scan
+      - name: 隐私扫描
         shell: pwsh
         run: ./scripts/Test-RepositoryPrivacy.ps1

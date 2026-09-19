@@ -1,6 +1,6 @@
-name: Bug report
-description: Report a reproducible EPUB翻译 problem without sharing private data
-title: "[Bug] "
+name: 问题报告
+description: 在不分享私人数据的前提下报告可复现问题
+title: "[问题] "
 labels: [bug]
 body:
   - type: markdown
@@ -10,67 +10,67 @@ body:
   - type: input
     id: version
     attributes:
-      label: App version
+      label: App 版本
       placeholder: "1.0.1 (4)"
     validations:
       required: true
   - type: input
-    id: macos
+    id: system
     attributes:
-      label: macOS version
-      placeholder: "macOS version only; omit device name and identifiers"
+      label: 操作系统版本
+      placeholder: "例如 macOS 15 或 Windows 11；请勿填写设备名称和标识符"
     validations:
       required: true
   - type: dropdown
     id: provider
     attributes:
-      label: Provider
+      label: 服务商
       options:
         - Qwen
         - DeepSeek
-        - Not provider-related
+        - 与服务商无关
     validations:
       required: true
   - type: dropdown
     id: style
     attributes:
-      label: Translation style
+      label: 翻译风格
       options:
         - 直译版
         - 通畅版
         - 意译（更简洁有力）
         - 书面评论体
-        - Not translation-related
+        - 与翻译无关
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: Reproduction steps
-      description: Use a self-authored or public-domain minimal example; do not attach a private book.
+      label: 复现步骤
+      description: 请使用自制或公共领域的最小示例，不要上传私人书籍。
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Expected behavior
+      label: 预期行为
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
-      label: Actual behavior
+      label: 实际行为
     validations:
       required: true
   - type: textarea
     id: diagnostics
     attributes:
-      label: Sanitized diagnostic information
-      description: Optional. Review every line and remove credentials, book content, paths, account data, and machine identifiers before posting.
+      label: 已脱敏的诊断信息
+      description: 可选。提交前请逐行检查并删除凭据、书籍内容、路径、账户数据和设备标识。
   - type: checkboxes
     id: privacy
     attributes:
-      label: Privacy confirmation
+      label: 隐私确认
       options:
-        - label: I removed API Keys, private books, personal paths, account identifiers, and sensitive logs/screenshots.
+        - label: 我已删除 API Key、私人书籍、个人路径、账户标识以及敏感日志或截图。
           required: true

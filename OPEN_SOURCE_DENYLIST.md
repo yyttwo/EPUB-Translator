@@ -1,18 +1,17 @@
-# Open-source export denylist
+# 开源导出禁止清单
 
-The following content must never enter this repository:
+以下内容不得进入公开仓库：
 
-- any previous `.git` directory, Git object, alternate object database, remote, tag, or private development history
-- API keys, tokens, authorization headers, passwords, credential exports, private keys, certificates, provisioning profiles, or authentication state
-- `.env` files or local configuration containing real values
-- real user EPUB files, translated books, copyrighted book excerpts, user libraries, or personal test data
-- real checkpoints, job databases, SQLite files, logs, crash reports, coverage output, or diagnostic captures
-- build output, `DerivedData`, `.build`, caches, virtual environments, release bundles, DMG, ZIP, or App packages
-- internal acceptance, security, Codex, migration, archive, recovery, or task-execution reports
-- local absolute paths, computer names, private email addresses, phone numbers, addresses, network identifiers, or machine identifiers
-- mature-reference source that is not part of the current product
-- Ollama, local-LLM, review queues, semantic blocking gates, A/B/C review systems, or other features absent from the current product
-- third-party reference screenshots, unlicensed images, fonts, icons, or other assets
-- symlinks, hardlinks, path dependencies, or runtime/build dependencies on any non-public local repository
+- 旧 `.git` 目录、Git 对象、对象替代库、私有远程地址或私有开发历史
+- API Key、Token、授权头、密码、凭据导出、私钥、证书、描述文件或登录状态
+- 含真实值的 `.env` 或本地配置文件
+- 真实用户 EPUB、译本、受版权保护的摘录、用户书库或个人测试数据
+- 真实检查点、任务数据库、SQLite 文件、日志、崩溃报告、覆盖率结果或诊断捕获
+- 构建输出、`DerivedData`、`.build`、缓存、虚拟环境、DMG、ZIP、App 或其他发布包
+- 内部验收、安全、迁移、归档、恢复或任务执行报告
+- 本机绝对路径、计算机名、私人邮箱、电话号码、地址或设备与网络标识
+- 不属于当前产品的参考源码或未实现功能
+- 未经许可的第三方截图、图片、字体、图标或其他素材
+- 符号链接、硬链接、路径依赖，或依赖非公开本地仓库的运行与构建配置
 
-Unknown or unverified fixtures, assets, documents, and dependencies are excluded by default.
+来源不明或尚未验证的 Fixture、素材、文档和依赖默认排除。

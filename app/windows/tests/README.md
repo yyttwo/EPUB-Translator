@@ -1,7 +1,7 @@
-# Stage 1 tests
+# Windows 测试
 
-`EPUBTranslator.Core.Tests` covers the four stable translation modes, Provider IDs, credential abstraction with fake secrets, extension/path policy, output-source separation, errors and the fixed support URL.
+`EPUBTranslator.Core.Tests` 覆盖翻译模式、服务商标识、凭据抽象、扩展名与路径策略、输出文件隔离、错误处理和支持链接。
 
-`EPUBTranslator.Windows.Tests` covers AppData directory policy, file-copy behavior and an opt-in Credential Manager integration test. Windows-only tests must run on a real Windows 11 x64 environment.
+`EPUBTranslator.Windows.Tests` 覆盖 AppData 目录策略、文件复制行为，以及可选的 Credential Manager 集成测试。Windows 专属测试必须在真实 Windows 环境运行。
 
-The credential integration test uses only `FAKE_QWEN_SECRET` and `FAKE_DEEPSEEK_SECRET`. It is disabled unless `EPUB_TRANSLATOR_RUN_CREDENTIAL_TESTS=1` is set, and deletes both fake credentials in a `finally` block.
+凭据集成测试只使用 `FAKE_QWEN_SECRET` 和 `FAKE_DEEPSEEK_SECRET`。除非设置 `EPUB_TRANSLATOR_RUN_CREDENTIAL_TESTS=1`，该测试不会运行；测试结束时会在 `finally` 中删除两个虚构凭据。

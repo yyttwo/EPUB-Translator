@@ -1,20 +1,20 @@
-# Third-Party Notices
+# Windows 第三方组件说明
 
-Stage 1 source references the following build, UI and test packages. No package binaries are committed to this repository; NuGet restores them on the Windows build machine.
+Windows 源码引用以下构建、界面和测试包。仓库不提交这些包的二进制文件，由 NuGet 在 Windows 构建环境中恢复。
 
-| Component | Pinned version | Purpose | License |
+| 组件 | 固定版本 | 用途 | 许可证 |
 | --- | ---: | --- | --- |
-| Microsoft.WindowsAppSDK | 2.4.0 | WinUI 3 and Windows App SDK | Microsoft package license |
-| Microsoft.Windows.SDK.BuildTools | 10.0.28000.2705 | Windows SDK build tools | Microsoft package license |
-| Microsoft.Windows.SDK.BuildTools.WinApp | 0.6.1 | Packaged WinUI `dotnet run` support | MIT |
-| Microsoft.NET.Test.Sdk | 18.10.0 | .NET test host integration | MIT |
-| MSTest.TestAdapter | 4.4.0 | MSTest discovery and execution | MIT |
-| MSTest.TestFramework | 4.4.0 | Unit-test framework | MIT |
+| Microsoft.WindowsAppSDK | 2.4.0 | WinUI 3 与 Windows App SDK | Microsoft 软件包许可证 |
+| Microsoft.Windows.SDK.BuildTools | 10.0.28000.2705 | Windows SDK 构建工具 | Microsoft 软件包许可证 |
+| Microsoft.Windows.SDK.BuildTools.WinApp | 0.6.1 | WinUI `dotnet run` 支持 | MIT |
+| Microsoft.NET.Test.Sdk | 18.10.0 | .NET 测试宿主集成 | MIT |
+| MSTest.TestAdapter | 4.4.0 | MSTest 测试发现与执行 | MIT |
+| MSTest.TestFramework | 4.4.0 | 单元测试框架 | MIT |
 
-The application calls Windows Credential Manager directly through the Windows `advapi32` API and does not add a third-party credential package.
+应用通过 Windows `advapi32` API 直接调用 Windows Credential Manager，不引入第三方凭据软件包。
 
-Qwen and DeepSeek are external network services. No provider SDK, model, credential or service code is bundled in Stage 1, and Stage 1 makes zero provider requests.
+Qwen 和 DeepSeek 是外部网络服务。仓库不包含服务商 SDK、模型、凭据或服务端代码。
 
-The brand icon is copied from the project's existing Apache-2.0 public source repository. The included Stage 1 EPUB fixture and its contents are authored specifically for this project; see `fixtures/FIXTURE_PROVENANCE.md`.
+品牌图标来自本项目现有的 Apache-2.0 公开源码。测试 EPUB 由本项目专门创作，详见 `fixtures/FIXTURE_PROVENANCE.md`。
 
-Before binary distribution, restore output and transitive dependencies must be audited again and the shipped notices regenerated from the actual lock graph.
+发布二进制文件前，应再次审计恢复结果与传递依赖，并根据实际锁定的依赖图生成随包说明。

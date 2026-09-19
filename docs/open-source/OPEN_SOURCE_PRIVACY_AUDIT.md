@@ -1,58 +1,42 @@
-# Open-source privacy audit
+# 开源隐私审计
 
-Audit date: 2026-09-09
+审计日期：2026-09-09
+候选版本：1.0.1 (4)
 
-Candidate version: 1.0.1 (4)
+这是首次公开 macOS 源码前的历史审计记录。扫描范围为当时允许公开的全部文件，不包括新仓库自身的 Git 元数据和生成的构建输出。
 
-Scope: every file eligible for the initial public-source candidate, excluding the new repository's own empty Git metadata and generated build output.
+## 检查规则
 
-## Rules
+审计检查了：
 
-The audit checked for:
+- API Key、Token、私钥、授权头和其他凭据格式
+- 个人主目录、私人邮箱、设备与网络标识及其他个人数据
+- 真实用户 EPUB、受版权保护的摘录、日志、检查点、数据库、崩溃与覆盖率输出
+- 符号链接、硬链接、Git 对象替代库、私有历史、私有远程地址和本地路径依赖
+- 未经许可的第三方图片、截图、字体、软件包和源码
 
-- credential-like assignments and common API, cloud, private-key, authorization, and token formats
-- personal home paths, repository paths, private email addresses, machine identifiers, network identifiers, and other personal data
-- real user EPUB files, known user book titles, copyrighted excerpts, logs, checkpoints, databases, crash/coverage output, and release binaries
-- symlinks, hardlinks, Git object alternates, copied history, private remotes, and local path dependencies
-- unapproved third-party images, screenshots, fonts, packages, and source code
+报告不会复述任何可能的敏感匹配内容。
 
-Sensitive matches are never reproduced in this report.
+## 结果
 
-## Results
+| 门禁 | 结果 |
+| --- | ---: |
+| 真实密钥泄露 | 0 |
+| 个人信息泄露 | 0 |
+| 私人邮箱泄露 | 0 |
+| 私人绝对路径泄露 | 0 |
+| 真实用户 EPUB 泄露 | 0 |
+| 日志、检查点和数据库 | 0 |
+| 发布二进制 | 0 |
+| 符号链接和硬链接 | 0 |
+| 私有 Git 历史 | 0 |
+| 第三方参考图片 | 0 |
 
-| Gate | Result |
-| --- | --- |
-| Real secret exposure | 0 |
-| Personal information exposure | 0 |
-| Private email exposure | 0 |
-| Personal absolute path exposure | 0 |
-| Private/reference repository path exposure | 0 |
-| Real user EPUB exposure | 0 |
-| Copyright-sensitive user book content | 0 |
-| Logs, checkpoints, and databases | 0 |
-| Release binaries | 0 |
-| Symlinks and hardlinks | 0 |
-| Private Git history and object alternates | 0 |
-| Third-party reference images | 0 |
+仓库自带扫描器和附加静态规则均在本地运行，没有上传源码，也没有使用网络扫描服务。
 
-The public GitHub handle used by the existing support repository appears only where it identifies public URLs or the existing public bundle identifier. No private email or real name is included.
-
-The repository-provided scanner and additional static expressions ran locally. Optional `gitleaks` and `trufflehog` executables were not installed, so no source was uploaded and no network scanner was used.
-
-## Credential behavior verified from source
-
-API Keys are held in a session-only in-memory credential store. They are cleared when the App exits and are not written to macOS Keychain, preferences, checkpoints, logs, or diagnostics.
-
-## Conclusion
+## 结论
 
 `PRIVACY_SCAN=PASS`
-
 `SECRET_SCAN=PASS`
-
-`SECRET_SCAN_LOCAL_ONLY=YES`
-
 `PRIVATE_INFORMATION_EXPOSURE=0`
-
-`PRIVATE_ABSOLUTE_PATH_EXPOSURE=0`
-
 `PRIVATE_GIT_HISTORY_COPIED=NO`

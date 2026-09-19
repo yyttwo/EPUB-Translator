@@ -22,7 +22,7 @@
 
 ## v1.0.0 — 2026-09-01
 
-Initial public release.
+首次公开发布。
 
 - DRM-free 英文 EPUB 翻译为简体中文 EPUB
 - 支持用户自己的 Qwen 与 DeepSeek API

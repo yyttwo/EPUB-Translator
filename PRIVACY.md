@@ -1,14 +1,11 @@
 # 隐私说明
 
-## API Key
+## API Key 处理方式
 
-EPUB翻译不会持久保存您的 API Key。
+- **macOS：** API Key 仅在当前 App 运行期间保存在内存中，退出后清除；不读取或写入 macOS 钥匙串。
+- **Windows：** API Key 使用 Windows Credential Manager 保存，不写入源码、日志或普通配置文件。
 
-API Key 仅在当前 App 运行期间使用，退出 App 后即清除。
-
-下次启动时需要重新输入。
-
-App 不读取或写入 macOS 钥匙串，不把 API Key 写入偏好设置、检查点、日志或诊断报告。
+两个平台都不会把 API Key 写入翻译检查点或诊断报告。
 
 ## 电子书内容
 

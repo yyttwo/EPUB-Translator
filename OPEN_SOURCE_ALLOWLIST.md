@@ -1,19 +1,10 @@
-# Open-source export allowlist
+# 开源导出允许清单
 
-Only the following repository-relative paths may be included in the initial public-source candidate. Every item remains subject to the reviews listed below.
+只有以下仓库相对路径允许进入公开源码。所有内容仍需通过隐私、许可证和安全检查：
 
-- `app/macOS/Sources/EPUBTranslatorApp/`
-- `app/macOS/Sources/EPUBTranslatorHelper/`
-- `app/macOS/Tests/EPUBTranslatorTests/`
-- `app/macOS/Tests/EPUBTranslatorUITests/`
-- `app/macOS/EPUBTranslator.xcodeproj/`
-- `app/macOS/EPUBTranslator.entitlements`
-- `app/macOS/EPUBTranslatorHelper.entitlements`
+- `app/macOS/`
 - `app/windows/`
-- `fixtures/stage-1-source/`
-- `fixtures/stage-1-self-authored.epub`
-- `fixtures/FIXTURE_PROVENANCE.md`
-- `fixtures/README.md`
+- `fixtures/`
 - `scripts/`
 - `.github/`
 - `.gitignore`
@@ -29,10 +20,6 @@ Only the following repository-relative paths may be included in the initial publ
 - `OPEN_SOURCE_ALLOWLIST.md`
 - `OPEN_SOURCE_DENYLIST.md`
 - `OPEN_SOURCE_MANIFEST.json`
-- `docs/open-source/OPEN_SOURCE_PRIVACY_AUDIT.md`
-- `docs/open-source/OPEN_SOURCE_LICENSE_AUDIT.md`
-- `docs/open-source/OPEN_SOURCE_FINAL_PREPUBLICATION_REPORT.md`
-- `docs/assets/screenshots/`
-- `docs/downloads/`
+- `docs/`
 
-Anything not listed here is excluded by default. This list controls eligibility only; the denylist always takes precedence.
+未列出的内容默认排除。禁止清单始终拥有更高优先级。

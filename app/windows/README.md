@@ -1,16 +1,16 @@
-# EPUB Translator for Windows
+# EPUB Translator Windows 版
 
-This directory contains the native Windows implementation of EPUB Translator.
+此目录包含 EPUB Translator 的 Windows 原生实现。
 
-## Requirements
+## 环境要求
 
 - Windows 11
 - .NET 10 SDK
-- Visual Studio Build Tools with Windows application development support
+- 包含 Windows 应用开发组件的 Visual Studio Build Tools
 
-## Build and test
+## 构建与测试
 
-Run these commands from this directory on Windows:
+在 Windows 中进入本目录并运行：
 
 ```powershell
 dotnet restore EPUBTranslator.Windows.sln -p:Platform=x64
@@ -19,4 +19,4 @@ dotnet test tests/EPUBTranslator.Core.Tests/EPUBTranslator.Core.Tests.csproj --n
 dotnet test tests/EPUBTranslator.Windows.Tests/EPUBTranslator.Windows.Tests.csproj --no-restore -c Release -p:Platform=x64 -p:RuntimeIdentifier=win-x64
 ```
 
-The Windows application is currently a preview. It is distributed as an unpackaged, self-contained ZIP and uses the user's own provider API key.
+Windows 版目前为预览版，以未打包、自包含 ZIP 形式分发，使用用户自行提供的服务商 API Key。

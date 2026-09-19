@@ -1,4 +1,4 @@
-# Test fixture
+# 测试 Fixture
 
 `stage-1-self-authored.epub` 是本项目完全自创的最小 EPUB 测试资料，不含用户书籍、受版权保护的摘录或个人信息。
 

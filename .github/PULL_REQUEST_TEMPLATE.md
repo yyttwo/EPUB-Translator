@@ -1,22 +1,20 @@
-## Summary
+## 变更摘要
 
-Describe the user-visible change and why it is needed.
+说明用户可见的变更及其必要性。
 
-## Validation
+## 验证
 
-- [ ] `./scripts/security-scan.sh`
-- [ ] `./scripts/build.sh`
-- [ ] `./scripts/test.sh`
-- [ ] `./scripts/test-ui.sh` (or explanation below)
-- [ ] EPUB cover, images, navigation, and reading order remain intact where applicable
+- [ ] 已运行 `./scripts/security-scan.sh`
+- [ ] 已运行适用平台的构建和测试
+- [ ] 如涉及 EPUB，封面、图片、导航和阅读顺序仍保持完整
 
-## Privacy and provenance
+## 隐私与来源
 
-- [ ] No real API Key, credential, private path, user EPUB, book excerpt, log, checkpoint, database, or build artifact is included
-- [ ] Test fixtures and visual assets are self-authored or have documented redistribution rights
-- [ ] No private repository, absolute path, symlink, hardlink, or local-only dependency was added
-- [ ] Any new dependency has its license and purpose documented in `THIRD_PARTY_NOTICES.md`
+- [ ] 未包含真实 API Key、凭据、私人路径、用户 EPUB、书籍摘录、日志、检查点、数据库或构建产物
+- [ ] 测试 Fixture 和视觉素材为项目自创，或具有已记录的再分发权利
+- [ ] 未新增私有仓库、绝对路径、符号链接、硬链接或仅限本机的依赖
+- [ ] 新依赖的用途和许可证已记录在 `THIRD_PARTY_NOTICES.md`
 
-## Notes
+## 补充说明
 
-Add testing limitations or migration details here. Do not paste sensitive diagnostics.
+请填写测试限制或迁移信息，不要粘贴敏感诊断内容。
