@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="EPUBTranslator.App.Pages.TranslatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{ThemeResource AppPageBrush}">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel
+                MaxWidth="960"
+                Padding="40,32,40,56"
+                HorizontalAlignment="Stretch"
+                Spacing="18">
+                <TextBlock Style="{StaticResource PageTitleStyle}" Text="EPUB翻译" />
+                <TextBlock
+                    Foreground="{ThemeResource AppMutedTextBrush}"
+                    Text="免费的 Windows EPUB 英译中工具"
+                    TextWrapping="Wrap" />
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <StackPanel Spacing="14">
+                        <TextBlock Style="{StaticResource SectionTitleStyle}" Text="书籍" />
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Button Click="SelectEpub_Click" Content="选择 EPUB…" />
+                            <Button
+                                x:Name="SaveSmokeCopyButton"
+                                Click="SaveSmokeCopy_Click"
+                                Content="保存测试副本…"
+                                IsEnabled="False" />
+                        </StackPanel>
+                        <TextBlock
+                            x:Name="SelectedFileText"
+                            FontWeight="SemiBold"
+                            Text="尚未选择 EPUB"
+                            TextTrimming="CharacterEllipsis" />
+                        <TextBlock
+                            x:Name="SelectedFileDetailsText"
+                            Foreground="{ThemeResource AppMutedTextBrush}"
+                            Text="仅接受用户主动选择的 .epub 文件。" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <StackPanel Spacing="16">
+                        <TextBlock Style="{StaticResource SectionTitleStyle}" Text="翻译设置" />
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <TextBlock VerticalAlignment="Center" Text="云端 AI" />
+                            <ComboBox x:Name="ProviderComboBox" SelectedIndex="0" Width="180">
+                                <ComboBoxItem Content="Qwen" Tag="Qwen" />
+                                <ComboBoxItem Content="DeepSeek" Tag="DeepSeek" />
+                            </ComboBox>
+                        </StackPanel>
+                        <TextBlock Text="翻译为　简体中文" />
+                        <TextBlock FontWeight="SemiBold" Text="翻译模式" />
+                        <RadioButtons x:Name="TranslationModeButtons" SelectedIndex="1">
+                            <x:String>直译版</x:String>
+                            <x:String>通畅版</x:String>
+                            <x:String>意译（更简洁有力）</x:String>
+                            <x:String>书面评论体</x:String>
+                        </RadioButtons>
+                        <Button
+                            HorizontalAlignment="Left"
+                            Click="StartTranslation_Click"
+                            Content="整本翻译（后续阶段）"
+                            IsEnabled="False"
+                            Style="{StaticResource AccentButtonStyle}" />
+                        <TextBlock
+                            Foreground="{ThemeResource AppMutedTextBrush}"
+                            Text="Stage 2 只在“API 管理”页提供凭据验证和极短翻译测试；本阶段不会上传或翻译整本 EPUB。"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <InfoBar
+            x:Name="StatusInfoBar"
+            Margin="24"
+            HorizontalAlignment="Stretch"
+            IsClosable="True"
+            IsOpen="False"
+            VerticalAlignment="Bottom" />
+    </Grid>
+</Page>

@@ -14,6 +14,8 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.app
+!app/windows/src/EPUBTranslator.App/
+!app/windows/src/EPUBTranslator.App/**
 *.dSYM
 *.dmg
 *.zip
@@ -44,6 +46,7 @@ private/
 # User books and generated translations
 *.epub
 !fixtures/stage-1-self-authored.epub
+!app/windows/fixtures/stage-1-self-authored.epub
 
 # Editor state
 .idea/

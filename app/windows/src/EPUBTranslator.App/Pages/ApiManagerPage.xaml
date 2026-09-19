@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="EPUBTranslator.App.Pages.ApiManagerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{ThemeResource AppPageBrush}">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel
+                MaxWidth="960"
+                Padding="40,32,40,56"
+                HorizontalAlignment="Stretch"
+                Spacing="18">
+                <TextBlock Style="{StaticResource PageTitleStyle}" Text="API 管理" />
+                <TextBlock
+                    Foreground="{ThemeResource AppMutedTextBrush}"
+                    Text="API Key 只保存到当前 Windows 账户的凭据管理器，不写入普通文件。"
+                    TextWrapping="Wrap" />
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <StackPanel Spacing="14">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Style="{StaticResource SectionTitleStyle}" Text="Qwen" />
+                            <TextBlock
+                                x:Name="QwenStatusText"
+                                VerticalAlignment="Center"
+                                Foreground="{ThemeResource AppMutedTextBrush}"
+                                Text="正在检查…" />
+                        </StackPanel>
+                        <TextBlock
+                            Foreground="{ThemeResource AppMutedTextBrush}"
+                            Text="模型：qwen3.7-plus" />
+                        <PasswordBox
+                            x:Name="QwenPasswordBox"
+                            Header="API Key"
+                            PasswordChar="●"
+                            PlaceholderText="输入 Qwen API Key" />
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button x:Name="QwenAddButton" Click="AddCredential_Click" Content="添加" Tag="Qwen" />
+                            <Button x:Name="QwenReplaceButton" Click="ReplaceCredential_Click" Content="更换" Tag="Qwen" />
+                            <Button x:Name="QwenDeleteButton" Click="DeleteCredential_Click" Content="删除" Tag="Qwen" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button x:Name="QwenValidateButton" Click="ValidateCredential_Click" Content="验证 / 重新验证" Tag="Qwen" />
+                            <Button x:Name="QwenSmokeButton" Click="TranslationSmoke_Click" Content="运行翻译测试" Tag="Qwen" />
+                            <Button x:Name="QwenCancelButton" Click="CancelProviderOperation_Click" Content="取消请求" IsEnabled="False" Tag="Qwen" />
+                        </StackPanel>
+                        <TextBlock
+                            x:Name="QwenSmokeResultText"
+                            Foreground="{ThemeResource AppMutedTextBrush}"
+                            Text="尚未运行翻译测试。"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <StackPanel Spacing="14">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Style="{StaticResource SectionTitleStyle}" Text="DeepSeek" />
+                            <TextBlock
+                                x:Name="DeepSeekStatusText"
+                                VerticalAlignment="Center"
+                                Foreground="{ThemeResource AppMutedTextBrush}"
+                                Text="正在检查…" />
+                        </StackPanel>
+                        <TextBlock
+                            Foreground="{ThemeResource AppMutedTextBrush}"
+                            Text="模型：deepseek-v4-flash" />
+                        <PasswordBox
+                            x:Name="DeepSeekPasswordBox"
+                            Header="API Key"
+                            PasswordChar="●"
+                            PlaceholderText="输入 DeepSeek API Key" />
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button x:Name="DeepSeekAddButton" Click="AddCredential_Click" Content="添加" Tag="DeepSeek" />
+                            <Button x:Name="DeepSeekReplaceButton" Click="ReplaceCredential_Click" Content="更换" Tag="DeepSeek" />
+                            <Button x:Name="DeepSeekDeleteButton" Click="DeleteCredential_Click" Content="删除" Tag="DeepSeek" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button x:Name="DeepSeekValidateButton" Click="ValidateCredential_Click" Content="验证 / 重新验证" Tag="DeepSeek" />
+                            <Button x:Name="DeepSeekSmokeButton" Click="TranslationSmoke_Click" Content="运行翻译测试" Tag="DeepSeek" />
+                            <Button x:Name="DeepSeekCancelButton" Click="CancelProviderOperation_Click" Content="取消请求" IsEnabled="False" Tag="DeepSeek" />
+                        </StackPanel>
+                        <TextBlock
+                            x:Name="DeepSeekSmokeResultText"
+                            Foreground="{ThemeResource AppMutedTextBrush}"
+                            Text="尚未运行翻译测试。"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <StackPanel Spacing="8">
+                        <TextBlock Style="{StaticResource SectionTitleStyle}" Text="隐私说明" />
+                        <TextBlock
+                            Foreground="{ThemeResource AppMutedTextBrush}"
+                            Text="保存 Key 不等于验证成功。只有点击验证或翻译测试时，应用才会向当前选择的服务商发送一次最小请求；不会自动切换服务商。页面不会显示已保存的完整 Key。"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <InfoBar
+            x:Name="StatusInfoBar"
+            Margin="24"
+            HorizontalAlignment="Stretch"
+            IsClosable="True"
+            IsOpen="False"
+            VerticalAlignment="Bottom" />
+    </Grid>
+</Page>
