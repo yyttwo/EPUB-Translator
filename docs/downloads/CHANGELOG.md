@@ -1,20 +1,5 @@
 # 更新记录
 
-## Windows x64 v0.1.0 — 2026-09-19
-
-- 首个 Windows 11 x64 正式发布版本，适用于 Intel 和 AMD x64 处理器
-- 使用自包含、未打包的 WinUI 3 发布方式，无需另外安装 .NET SDK
-- 支持 Qwen 与 DeepSeek、四种翻译风格、翻译进度保存及失败重试
-- 已通过 Windows x64 CI 构建、测试、包内容检查和隐私扫描
-- 已通过 Windows 11 x64 真机启动和基本使用测试
-- Qwen 已完成最小真实请求验证；DeepSeek 尚未完成真实请求验证
-
-### 已知限制
-
-- 当前 Windows 安装包尚未进行代码签名
-- 仅支持 Windows 11 x64；不适用于 Windows ARM64 原生运行
-- 仅支持 DRM-free EPUB，不支持 PDF、DOCX、MOBI、AZW 或 DRM 移除
-
 ## v1.0.1 — 2026-09-05
 
 - 更新翻译、API 管理、关于与帮助三个页面的视觉设计
