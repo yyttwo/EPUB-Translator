@@ -7,7 +7,7 @@
 | 平台 | 下载 |
 | --- | --- |
 | Apple 芯片 Mac | [EPUB-Translator-v1.0.1.dmg](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) |
-| Windows 11 x64（预览版） | [EPUB-Translator-Windows-x64-Preview-v0.1.0.zip](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0-preview.1/EPUB-Translator-Windows-x64-Preview-v0.1.0.zip) |
+| Windows 11 x64（Intel/AMD） | [EPUB-Translator-Windows-x64-v0.1.0.zip](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0/EPUB-Translator-Windows-x64-v0.1.0.zip) |
 
 ## 使用 DMG 安装（推荐）
 
@@ -32,14 +32,14 @@ v1.0.1 尚未经过 Apple Developer ID 签名或 Apple 公证，因此 macOS 可
 
 如果更习惯 ZIP，可下载 `EPUB-Translator-v1.0.1.zip`，解压后将“EPUB翻译.app”拖入“应用程序”文件夹。DMG 仍是推荐方式。
 
-## Windows x64 Preview
+## Windows x64 v0.1.0
 
-1. 下载 Windows Preview ZIP。
-2. 使用 [SHA256SUMS.txt](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0-preview.1/SHA256SUMS.txt) 校验文件。
+1. 下载 Windows x64 ZIP。
+2. 使用 [SHA256SUMS.txt](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0/SHA256SUMS.txt) 校验文件。
 3. 使用 Windows 资源管理器或 7-Zip 完整解压。
 4. 进入解压目录并打开 `EPUBTranslator.App.exe`。
 
-不要直接在 ZIP 压缩包内部运行程序。Windows Preview 当前未签名且不是正式稳定版；不要为了运行它关闭 Defender、SmartScreen 或其他系统安全保护。
+不要直接在 ZIP 压缩包内部运行程序。Windows 版当前未进行代码签名；不要为了运行它关闭 Defender、SmartScreen 或其他系统安全保护。
 
 ## 第一次使用
 
@@ -58,7 +58,7 @@ v1.0.1 尚未经过 Apple Developer ID 签名或 Apple 公证，因此 macOS 可
 
 ![macOS 关于与帮助页](../assets/screenshots/macos-v1.0.1/about-help.png)
 
-### Windows Preview 当前界面
+### Windows x64 当前界面
 
 ![Windows 翻译页](../assets/screenshots/windows-preview-v0.1.0/translate.png)
 

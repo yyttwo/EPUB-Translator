@@ -9,20 +9,20 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 | 平台 | 推荐下载 | 版本状态 | 适用设备 |
 | --- | --- | --- | --- |
 | macOS | [下载 v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) | 正式版 | Apple 芯片 Mac（M1/M2/M3/M4 系列） |
-| Windows | [下载 x64 Preview ZIP](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0-preview.1/EPUB-Translator-Windows-x64-Preview-v0.1.0.zip) | 预览版 | Windows 11 x64（Intel/AMD） |
+| Windows | [下载 x64 v0.1.0 ZIP](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0/EPUB-Translator-Windows-x64-v0.1.0.zip) | 正式发布 | Windows 11 x64（Intel/AMD） |
 
 其他下载：
 
 - [macOS v1.0.1 ZIP](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.zip)
 - [macOS v1.0.1 完整发布页](https://github.com/yyttwo/EPUB-Translator/releases/tag/v1.0.1)
-- [Windows x64 Preview 完整发布页](https://github.com/yyttwo/EPUB-Translator/releases/tag/windows-v0.1.0-preview.1)
+- [Windows x64 v0.1.0 完整发布页](https://github.com/yyttwo/EPUB-Translator/releases/tag/windows-v0.1.0)
 - [查看全部版本](https://github.com/yyttwo/EPUB-Translator/releases)
 
 普通用户不需要下载源码。macOS 用户打开 DMG 后将 App 拖入“应用程序”；Windows 用户应完整解压 ZIP，再运行 `EPUBTranslator.App.exe`。详细步骤见[安装指南](docs/downloads/INSTALL.md)。
 
 ![EPUB翻译下载安装三步引导](docs/assets/screenshots/download-guide.svg)
 
-> Windows 版目前是未签名的 x64 Preview，不是正式稳定版。使用前请核对 Release 中公布的 SHA-256，不要关闭 Defender 或 SmartScreen。
+> Windows x64 v0.1.0 已通过 Windows 11 x64 真机启动和基本使用测试，但目前仍未进行代码签名。使用前请核对 Release 中公布的 SHA-256，不要关闭 Defender 或 SmartScreen。
 
 ## 安装方法
 
@@ -37,7 +37,7 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 
 ### Windows 11 x64
 
-1. 下载 `EPUB-Translator-Windows-x64-Preview-v0.1.0.zip`。
+1. 下载 `EPUB-Translator-Windows-x64-v0.1.0.zip`。
 2. 将 ZIP 完整解压到普通文件夹；不要直接在压缩包中运行。
 3. 打开解压目录中的 `EPUBTranslator.App.exe`。
 4. 如果 Windows 显示安全提示，请先核对下载来源和 SHA-256。
@@ -50,7 +50,7 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 | --- | --- |
 | `EPUB-Translator-v1.0.1.dmg` | `141c054c1ed81cf89dd783089c711f4bca5b691a0186b3045ccaee11d87e6958` |
 | `EPUB-Translator-v1.0.1.zip` | `f077ebe0e59ec71bf3177779ac2eb58dead9d88b8f0f8cef2100947dcab9674e` |
-| `EPUB-Translator-Windows-x64-Preview-v0.1.0.zip` | `cfb70c3bd886129131cd0a2a0b70fe63e4556401fbd4241de37e7e27cb85c0fe` |
+| `EPUB-Translator-Windows-x64-v0.1.0.zip` | `cfb70c3bd886129131cd0a2a0b70fe63e4556401fbd4241de37e7e27cb85c0fe` |
 
 如果计算结果不同，请不要运行该文件，重新从本仓库 Releases 下载。
 
@@ -73,13 +73,13 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 - Apple 芯片 Mac。
 - 当前公开正式版未签名、未公证。
 
-### Windows x64 Preview v0.1.0
+### Windows x64 v0.1.0
 
 - Windows 11 x64，适用于 Intel/AMD 处理器。
-- 自包含、未打包、未签名的预览版本。
+- 自包含、未打包、未签名的正式发布版本。
 - 已通过 Windows x64 CI 构建、测试和隐私扫描。
+- 已通过 Windows 11 x64 真机启动和基本使用测试。
 - Qwen 已进行最小真实请求验证；DeepSeek 尚未完成真实请求验证。
-- 当前版本不应视为正式稳定版或生产版本。
 
 两个平台都需要无 DRM 的 EPUB、用户自己的 API Key，以及翻译期间可用的网络连接。
 
@@ -91,7 +91,7 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 | --- | --- | --- |
 | ![macOS 翻译页](docs/assets/screenshots/macos-v1.0.1/translate.png) | ![macOS API 管理页](docs/assets/screenshots/macos-v1.0.1/api-manager.png) | ![macOS 关于与帮助页](docs/assets/screenshots/macos-v1.0.1/about-help.png) |
 
-### Windows x64 Preview v0.1.0
+### Windows x64 v0.1.0
 
 | 翻译 | API 管理 | 关于与帮助 |
 | --- | --- | --- |
