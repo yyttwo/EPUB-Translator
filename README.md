@@ -40,12 +40,26 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 - 支持失败重试和断点进度
 - 用户自行提供 API Key；项目不销售 Token，也没有中转服务器
 
-## 源码目录
+## 核心代码入口
 
-- `app/macOS`：Swift / SwiftUI 原生 macOS App
-- `app/windows`：.NET 10 / WinUI 3 原生 Windows App
-- `fixtures`：项目自制、可公开的测试 EPUB
-- `docs`：下载、版本说明和界面截图
+### macOS 核心代码
+
+- [`app/macOS/Sources/EPUBTranslatorApp`](app/macOS/Sources/EPUBTranslatorApp)：Swift/SwiftUI 界面、EPUB 解析与重建、翻译流程、服务商连接和进度保存。
+- [`app/macOS/Sources/EPUBTranslatorHelper`](app/macOS/Sources/EPUBTranslatorHelper)：随 App 运行的辅助进程。
+- [`app/macOS/Tests`](app/macOS/Tests)：macOS 单元测试与界面测试。
+
+### Windows 核心代码
+
+- [`app/windows/src/EPUBTranslator.Core`](app/windows/src/EPUBTranslator.Core)：翻译核心、服务商连接、任务状态、公共模型和错误处理。
+- [`app/windows/src/EPUBTranslator.Platform.Windows`](app/windows/src/EPUBTranslator.Platform.Windows)：Windows Credential Manager、文件选择、AppData 和系统功能。
+- [`app/windows/src/EPUBTranslator.App`](app/windows/src/EPUBTranslator.App)：WinUI 3 界面与程序入口。
+- [`app/windows/tests`](app/windows/tests)：Windows 核心与平台测试。
+
+### 其他公开内容
+
+- [`fixtures`](fixtures)：项目自制、可公开的测试 EPUB。
+- [`docs`](docs)：安装说明、版本记录和界面截图。
+- [`scripts`](scripts)：构建、测试与安全扫描脚本。
 
 ### macOS 构建
 
