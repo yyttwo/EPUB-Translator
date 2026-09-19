@@ -4,6 +4,17 @@ EPUB翻译是一款免费的原生 macOS EPUB 英译中工具。它采用 BYOK�
 
 当前源码快照对应：`1.0.1 (4)`。
 
+## 下载应用
+
+| 平台 | 下载入口 | 版本状态 |
+| --- | --- | --- |
+| Apple 芯片 Mac | [下载 macOS v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator-Releases/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) | 正式版 |
+| Windows 11 x64（Intel/AMD） | [下载 Windows x64 Preview ZIP](https://github.com/yyttwo/EPUB-Translator-Windows-Preview/releases/download/v0.1.0-preview.1/EPUB-Translator-Windows-x64-Preview-v0.1.0.zip) | 预览版 |
+
+![EPUB翻译下载安装三步引导](https://raw.githubusercontent.com/yyttwo/EPUB-Translator-Releases/main/screenshots/download-guide.svg)
+
+普通用户不需要下载源码。macOS 用户打开 DMG 后将 App 拖入“应用程序”；Windows 用户应完整解压 ZIP，再运行 `EPUBTranslator.App.exe`。详细步骤和界面截图请查看[图文下载指南](https://github.com/yyttwo/EPUB-Translator-Releases#立即下载)。
+
 ## 主要功能
 
 - 导入并分析 EPUB，显示正文文件数、翻译单元数、进度百分比和预计用时
@@ -25,7 +36,7 @@ App 不访问 macOS 钥匙串。电子书内容只会在翻译所需的范围内
 
 ## 下载成品 App
 
-不想自行编译的用户可以前往独立的[二进制发布仓库](https://github.com/yyttwo/EPUB-Translator-Releases/releases/latest)下载正式版本。二进制发布与本源码仓库相互独立。
+不想自行编译的用户可以前往独立的 [macOS 二进制发布仓库](https://github.com/yyttwo/EPUB-Translator-Releases/releases/latest)或 [Windows Preview 下载仓库](https://github.com/yyttwo/EPUB-Translator-Windows-Preview/releases)下载。二进制发布与本源码仓库相互独立。
 
 ## 从源码构建
 
