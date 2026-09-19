@@ -1,6 +1,6 @@
 # EPUB翻译 / EPUB Translator
 
-EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Windows。它采用 BYOK（Bring Your Own Key）模式，使用用户自行提供的 Qwen（通义千问）或 DeepSeek API Key，在保留章节结构、封面、图片、链接和主要排版的前提下生成简体中文 EPUB。
+EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Windows。macOS 正式版同时提供 Apple 芯片和 Intel `x86_64` 两种原生安装包。它采用 BYOK（Bring Your Own Key）模式，使用用户自行提供的 Qwen（通义千问）或 DeepSeek API Key，在保留章节结构、封面、图片、链接和主要排版的前提下生成简体中文 EPUB。
 
 本仓库现已统一保存 macOS、Windows 源码、使用说明、界面截图与版本下载。旧的下载和 Windows Preview 仓库仅用于历史兼容。
 
@@ -11,6 +11,12 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 | macOS（Apple 芯片） | [下载 v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) | 正式版 | M1/M2/M3/M4 系列及更新机型 |
 | macOS（Intel） | [下载 Intel v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator/releases/download/v1.0.1/EPUB-Translator-v1.0.1-macOS-Intel.dmg) | 正式版 | Intel 处理器 Mac |
 | Windows | [下载 x64 Preview ZIP](https://github.com/yyttwo/EPUB-Translator/releases/download/windows-v0.1.0-preview.1/EPUB-Translator-Windows-x64-Preview-v0.1.0.zip) | 预览版 | Windows 11 x64（Intel/AMD） |
+
+### Mac 用户如何选择
+
+- “关于本机”显示 **芯片：Apple M 系列**：下载 `EPUB-Translator-v1.0.1.dmg`。
+- “关于本机”显示 **处理器：Intel**：下载 `EPUB-Translator-v1.0.1-macOS-Intel.dmg`。
+- Intel 版不是 Rosetta 转译包，而是原生 `x86_64` 构建；已经在真实 Intel Mac 上完成启动和基本使用测试。
 
 其他下载：
 
