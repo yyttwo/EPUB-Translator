@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">EPUB翻译下载安装三步引导</title>
+  <desc id="desc">第一步选择 macOS 或 Windows 版本，第二步完成安装或解压，第三步打开应用并配置自己的 API Key。</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f7ff"/>
+      <stop offset="1" stop-color="#eefbf7"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#23314d" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="430" rx="30" fill="url(#background)"/>
+  <text x="600" y="62" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="32" font-weight="700" fill="#15233c">下载安装只需 3 步</text>
+  <text x="600" y="96" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="17" fill="#60708c">选择适合电脑的版本，下载后即可开始使用</text>
+
+  <g filter="url(#shadow)">
+    <rect x="55" y="135" width="320" height="235" rx="24" fill="#ffffff"/>
+    <circle cx="105" cy="182" r="25" fill="#4568dc"/>
+    <text x="105" y="190" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#ffffff">1</text>
+    <text x="145" y="189" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17233a">选择版本</text>
+    <rect x="83" y="224" width="264" height="48" rx="12" fill="#eef2ff"/>
+    <text x="215" y="254" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="17" font-weight="600" fill="#314fb4">macOS：下载 DMG 正式版</text>
+    <rect x="83" y="286" width="264" height="48" rx="12" fill="#edf9f4"/>
+    <text x="215" y="316" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="17" font-weight="600" fill="#197754">Windows：下载 x64 Preview ZIP</text>
+  </g>
+
+  <path d="M395 252h45" stroke="#91a0b8" stroke-width="4" stroke-linecap="round"/>
+  <path d="m430 240 14 12-14 12" fill="none" stroke="#91a0b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="440" y="135" width="320" height="235" rx="24" fill="#ffffff"/>
+    <circle cx="490" cy="182" r="25" fill="#4568dc"/>
+    <text x="490" y="190" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#ffffff">2</text>
+    <text x="530" y="189" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17233a">安装或解压</text>
+    <text x="600" y="245" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="18" fill="#42526b">macOS：打开 DMG</text>
+    <text x="600" y="276" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="18" fill="#42526b">拖入“应用程序”文件夹</text>
+    <text x="600" y="322" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="18" fill="#42526b">Windows：完整解压 ZIP</text>
+  </g>
+
+  <path d="M780 252h45" stroke="#91a0b8" stroke-width="4" stroke-linecap="round"/>
+  <path d="m815 240 14 12-14 12" fill="none" stroke="#91a0b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="825" y="135" width="320" height="235" rx="24" fill="#ffffff"/>
+    <circle cx="875" cy="182" r="25" fill="#4568dc"/>
+    <text x="875" y="190" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#ffffff">3</text>
+    <text x="915" y="189" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17233a">开始翻译</text>
+    <text x="985" y="245" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="18" fill="#42526b">输入自己的 API Key</text>
+    <text x="985" y="279" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="18" fill="#42526b">选择 DRM-free 英文 EPUB</text>
+    <rect x="885" y="306" width="200" height="40" rx="20" fill="#15233c"/>
+    <text x="985" y="332" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif" font-size="17" font-weight="700" fill="#ffffff">生成简体中文 EPUB</text>
+  </g>
+</svg>

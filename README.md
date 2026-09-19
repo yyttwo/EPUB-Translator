@@ -1,48 +1,55 @@
 # EPUB翻译 / EPUB Translator
 
-**[统一下载中心](https://github.com/yyttwo/EPUB-Translator-Releases)** · **[macOS 正式版](https://github.com/yyttwo/EPUB-Translator-Releases/releases/latest)** · **[Windows x64 Preview](https://github.com/yyttwo/EPUB-Translator-Windows-Preview/releases/tag/v0.1.0-preview.1)** · **[当前源码仓库](https://github.com/yyttwo/EPUB-Translator)**
+EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Windows。它采用 BYOK（Bring Your Own Key）模式，使用用户自行提供的 Qwen（通义千问）或 DeepSeek API Key，在保留章节结构、封面、图片、链接和主要排版的前提下生成简体中文 EPUB。
 
-EPUB翻译是一款免费的原生 macOS EPUB 英译中工具。它采用 BYOK（Bring Your Own Key）模式，使用用户自行提供的 Qwen（通义千问）或 DeepSeek API Key，在保留章节结构、封面、书内图片和主要排版的前提下完成 EPUB → EPUB 翻译并生成简体中文 EPUB。
+本仓库现已统一保存 macOS、Windows 源码、使用说明、界面截图与版本下载。旧的下载和 Windows Preview 仓库仅用于历史兼容。
 
-当前源码快照对应：`1.0.1 (4)`。
+## 立即下载
 
-## 下载应用
-
-| 平台 | 下载入口 | 版本状态 |
+| 平台 | 下载 | 状态 |
 | --- | --- | --- |
-| Apple 芯片 Mac | [下载 macOS v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator-Releases/releases/download/v1.0.1/EPUB-Translator-v1.0.1.dmg) | 正式版 |
-| Windows 11 x64（Intel/AMD） | [下载 Windows x64 Preview ZIP](https://github.com/yyttwo/EPUB-Translator-Windows-Preview/releases/download/v0.1.0-preview.1/EPUB-Translator-Windows-x64-Preview-v0.1.0.zip) | 预览版 |
+| Apple 芯片 Mac | [macOS v1.0.1 DMG](https://github.com/yyttwo/EPUB-Translator/releases/tag/v1.0.1) | 正式版 |
+| Windows 11 x64（Intel/AMD） | [Windows x64 Preview](https://github.com/yyttwo/EPUB-Translator/releases/tag/windows-v0.1.0-preview.1) | 预览版 |
 
-![EPUB翻译下载安装三步引导](https://raw.githubusercontent.com/yyttwo/EPUB-Translator-Releases/main/screenshots/download-guide.svg)
+普通用户不需要下载源码。macOS 用户打开 DMG 后将 App 拖入“应用程序”；Windows 用户应完整解压 ZIP，再运行 `EPUBTranslator.App.exe`。详细步骤见[安装指南](docs/downloads/INSTALL.md)。
 
-普通用户不需要下载源码。macOS 用户打开 DMG 后将 App 拖入“应用程序”；Windows 用户应完整解压 ZIP，再运行 `EPUBTranslator.App.exe`。详细步骤和界面截图请查看[图文下载指南](https://github.com/yyttwo/EPUB-Translator-Releases#立即下载)。
+![EPUB翻译下载安装三步引导](docs/assets/screenshots/download-guide.svg)
 
-## 主要功能
+> Windows 版目前是未签名的 x64 Preview，不是正式稳定版。使用前请核对 Release 中公布的 SHA-256，不要关闭 Defender 或 SmartScreen。
 
-- 导入并分析 EPUB，显示正文文件数、翻译单元数、进度百分比和预计用时
-- 支持 Qwen 与 DeepSeek，并在开始翻译前验证 API Key
-- 提供直译版、通畅版、意译版和书面评论体四种翻译风格
-- 支持失败重试、跳过当前内容和断点进度保留
-- 重新打包时保留原书封面、图片、SVG、章节顺序与导航结构
-- 完成后提供译本保存与定位入口
+## 界面预览
 
-## API Key 与隐私
+### macOS v1.0.1
 
-EPUB翻译不会持久保存您的 API Key。
+| 翻译 | API 管理 | 关于与帮助 |
+| --- | --- | --- |
+| ![macOS 翻译页](docs/assets/screenshots/macos-v1.0.1/translate.png) | ![macOS API 管理页](docs/assets/screenshots/macos-v1.0.1/api-manager.png) | ![macOS 关于与帮助页](docs/assets/screenshots/macos-v1.0.1/about-help.png) |
 
-API Key 仅在当前 App 运行期间使用，退出 App 后即清除。
+### Windows x64 Preview v0.1.0
 
-下次启动时需要重新输入。
+| 翻译 | API 管理 | 关于与帮助 |
+| --- | --- | --- |
+| ![Windows 翻译页](docs/assets/screenshots/windows-preview-v0.1.0/translate.png) | ![Windows API 管理页](docs/assets/screenshots/windows-preview-v0.1.0/api-manager.png) | ![Windows 关于与帮助页](docs/assets/screenshots/windows-preview-v0.1.0/about-help.png) |
 
-App 不访问 macOS 钥匙串。电子书内容只会在翻译所需的范围内发送给用户选择的云端 AI 服务。详情见 [PRIVACY.md](PRIVACY.md)。
+## 功能
 
-## 下载成品 App
+- DRM-free EPUB → 简体中文 EPUB
+- 支持 Qwen 与 DeepSeek
+- 直译、通畅、意译和书面评论体四种翻译风格
+- 保留章节、封面、图片、链接和基本排版
+- 支持失败重试和断点进度
+- 用户自行提供 API Key；项目不销售 Token，也没有中转服务器
 
-不想自行编译的用户可以前往独立的 [macOS 二进制发布仓库](https://github.com/yyttwo/EPUB-Translator-Releases/releases/latest)或 [Windows Preview 下载仓库](https://github.com/yyttwo/EPUB-Translator-Windows-Preview/releases)下载。二进制发布与本源码仓库相互独立。
+## 源码目录
 
-## 从源码构建
+- `app/macOS`：Swift / SwiftUI 原生 macOS App
+- `app/windows`：.NET 10 / WinUI 3 原生 Windows App
+- `fixtures`：项目自制、可公开的测试 EPUB
+- `docs`：下载、版本说明和界面截图
 
-需要 macOS 与 Xcode。仓库不使用第三方 Swift 包，也不依赖本机其他源码目录。
+### macOS 构建
+
+需要 macOS 与 Xcode：
 
 ```bash
 ./scripts/build.sh
@@ -50,16 +57,32 @@ App 不访问 macOS 钥匙串。电子书内容只会在翻译所需的范围内
 ./scripts/test-ui.sh
 ```
 
-更多信息见 [DEVELOPMENT.md](DEVELOPMENT.md) 与 [CONTRIBUTING.md](CONTRIBUTING.md)。
+### Windows 构建
 
-普通用户遇到产品 Bug 或使用问题，请前往[下载仓库 Issues](https://github.com/yyttwo/EPUB-Translator-Releases/issues)反馈；源码改进请通过本仓库的 Pull Request 提交。
+需要 Windows 11、.NET 10 SDK 和相应 Windows 构建工具。进入 `app/windows` 后运行：
+
+```powershell
+dotnet restore EPUBTranslator.Windows.sln -p:Platform=x64
+dotnet build EPUBTranslator.Windows.sln --no-restore -c Release -p:Platform=x64
+dotnet test tests/EPUBTranslator.Core.Tests/EPUBTranslator.Core.Tests.csproj --no-restore -c Release -p:Platform=x64
+dotnet test tests/EPUBTranslator.Windows.Tests/EPUBTranslator.Windows.Tests.csproj --no-restore -c Release -p:Platform=x64 -p:RuntimeIdentifier=win-x64
+```
+
+## API Key 与隐私
+
+EPUB 文件结构在本机处理。翻译所需的文本片段及少量相邻上下文会直接发送给用户选择的 AI 服务商，不经过 EPUB Translator 项目服务器。
+
+不要在 Issue、日志或截图中提交 API Key、私人 EPUB、个人路径或其他敏感信息。详情见 [PRIVACY.md](PRIVACY.md) 与 [SECURITY.md](SECURITY.md)。
+
+## 支持与更新
+
+- [安装指南](docs/downloads/INSTALL.md)
+- [更新记录](docs/downloads/CHANGELOG.md)
+- [获得支持](docs/downloads/SUPPORT.md)
+- [参与开发](CONTRIBUTING.md)
 
 ## 许可证
 
 Copyright 2026 yyttwo。
 
-本项目采用 [Apache License 2.0](LICENSE) 开源。归属信息见 [NOTICE](NOTICE)，第三方与平台相关说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-
-## 安全
-
-请勿在 Issue、日志或截图中提交 API Key、私人 EPUB、个人文件路径或其他敏感信息。安全问题请按 [SECURITY.md](SECURITY.md) 的方式报告。
+本项目采用 [Apache License 2.0](LICENSE) 开源。第三方组件说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [Windows 第三方组件说明](app/windows/THIRD_PARTY_NOTICES.md)。

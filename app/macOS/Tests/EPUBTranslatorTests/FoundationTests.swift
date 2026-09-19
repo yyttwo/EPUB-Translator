@@ -1126,7 +1126,7 @@ final class UserFacingErrorTests: XCTestCase {
         let components = try XCTUnwrap(URLComponents(url: SupportLinks.githubIssues, resolvingAgainstBaseURL: false))
         XCTAssertEqual(components.scheme, "https")
         XCTAssertEqual(components.host, "github.com")
-        XCTAssertEqual(components.path, "/yyttwo/EPUB-Translator-Releases/issues/new")
+        XCTAssertEqual(components.path, "/yyttwo/EPUB-Translator/issues/new")
         XCTAssertNil(components.query)
         XCTAssertNil(components.fragment)
     }

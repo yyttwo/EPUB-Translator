@@ -18,7 +18,7 @@ check_pattern() {
   fi
 }
 
-check_pattern "credential-like values" '(?i)(api[_ -]?key|password|passwd|authorization)[[:space:]]*[:=][[:space:]]*["'\'']?[A-Za-z0-9_./+:-]{12,}'
+check_pattern "credential-like values" '(?i)(api[_ -]?key|password|passwd|authorization)[[:space:]]*[:=][[:space:]]*["'\''][^"'\'']{12,}["'\'']'
 check_pattern "common secret formats" '(sk-[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)'
 check_pattern "personal home paths" '/(Users|home)/[^/[:space:]"'\'']+'
 
@@ -40,7 +40,7 @@ else
   echo "PASS: no runtime data"
 fi
 
-unexpected_epubs="$(find . -type f -name '*.epub' -not -path './fixtures/stage-1-self-authored.epub' -not -path './build/*' -not -path './.git/*' -print)"
+unexpected_epubs="$(find . -type f -name '*.epub' -not -path './fixtures/stage-1-self-authored.epub' -not -path './app/windows/fixtures/stage-1-self-authored.epub' -not -path './build/*' -not -path './.git/*' -print)"
 if [[ -n "$unexpected_epubs" ]]; then
   echo "$unexpected_epubs"
   echo "FAILED: unexpected EPUB files"

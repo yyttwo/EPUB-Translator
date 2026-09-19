@@ -1,0 +1,14 @@
+body {
+  background: #f8f4ee;
+  color: #283443;
+  font-family: sans-serif;
+  line-height: 1.7;
+  margin: 8%;
+}
+
+img {
+  display: block;
+  margin: 0 auto 2rem;
+  max-width: 16rem;
+  width: 60%;
+}

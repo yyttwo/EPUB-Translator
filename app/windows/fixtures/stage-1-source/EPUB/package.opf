@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="book-id" version="3.0" xml:lang="zh-CN">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="book-id">urn:uuid:293c6d2c-2c5d-4527-ac92-35162b09b40e</dc:identifier>
+    <dc:title>EPUB翻译 Windows Stage 1 测试书</dc:title>
+    <dc:language>zh-CN</dc:language>
+    <dc:creator>EPUB翻译测试项目</dc:creator>
+    <meta property="dcterms:modified">2026-09-13T00:00:00Z</meta>
+  </metadata>
+  <manifest>
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav" />
+    <item id="chapter" href="text/chapter.xhtml" media-type="application/xhtml+xml" />
+    <item id="style" href="styles/main.css" media-type="text/css" />
+    <item id="cover" href="images/cover.svg" media-type="image/svg+xml" properties="cover-image" />
+  </manifest>
+  <spine>
+    <itemref idref="chapter" />
+  </spine>
+</package>

@@ -242,8 +242,8 @@ enum UserFacingErrorMapper {
 }
 
 enum SupportLinks {
-    static let githubRepository = URL(string: "https://github.com/yyttwo/EPUB-Translator-Releases")!
-    static let githubIssues = URL(string: "https://github.com/yyttwo/EPUB-Translator-Releases/issues/new")!
+    static let githubRepository = URL(string: "https://github.com/yyttwo/EPUB-Translator")!
+    static let githubIssues = URL(string: "https://github.com/yyttwo/EPUB-Translator/issues/new")!
     static let privacy = githubRepository.appendingPathComponent("blob/main/PRIVACY.md")
 
     @MainActor static func openIssues() { NSWorkspace.shared.open(githubIssues) }

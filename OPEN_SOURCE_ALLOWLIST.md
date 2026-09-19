@@ -9,6 +9,7 @@ Only the following repository-relative paths may be included in the initial publ
 - `app/macOS/EPUBTranslator.xcodeproj/`
 - `app/macOS/EPUBTranslator.entitlements`
 - `app/macOS/EPUBTranslatorHelper.entitlements`
+- `app/windows/`
 - `fixtures/stage-1-source/`
 - `fixtures/stage-1-self-authored.epub`
 - `fixtures/FIXTURE_PROVENANCE.md`
@@ -31,5 +32,7 @@ Only the following repository-relative paths may be included in the initial publ
 - `docs/open-source/OPEN_SOURCE_PRIVACY_AUDIT.md`
 - `docs/open-source/OPEN_SOURCE_LICENSE_AUDIT.md`
 - `docs/open-source/OPEN_SOURCE_FINAL_PREPUBLICATION_REPORT.md`
+- `docs/assets/screenshots/`
+- `docs/downloads/`
 
 Anything not listed here is excluded by default. This list controls eligibility only; the denylist always takes precedence.

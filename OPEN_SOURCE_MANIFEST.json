@@ -1,39 +1,24 @@
 {
-  "product_name": "EPUB翻译",
+  "product_name": "EPUB翻译 / EPUB Translator",
   "source_repository_name": "EPUB-Translator",
-  "version": "1.0.1",
-  "build": 4,
-  "file_count": 65,
-  "source_file_count": 18,
-  "tests_count": 78,
-  "public_docs_count": 14,
+  "platforms": ["macOS", "Windows"],
+  "macos_version": "1.0.1",
+  "windows_version": "0.1.0-preview.1",
   "license": "Apache-2.0",
   "license_compliance": "PASS",
-  "commit_candidate": "INITIAL_LOCAL_COMMIT",
   "privacy_scan": "PASS",
-  "secret_scan": "PASS_LOCAL_ONLY",
-  "dependency_audit": "PASS_NO_THIRD_PARTY_CODE_DEPENDENCIES",
-  "fresh_build": "PASS",
-  "full_tests": "PASS",
-  "source_matches_latest_accepted_version": true,
-  "unit_tests": {
+  "secret_scan": "PASS",
+  "private_git_history_copied": false,
+  "private_acceptance_reports_copied": false,
+  "release_binaries_stored_in_source_tree": false,
+  "macos_unit_tests": {
     "status": "PASS",
     "executed": 71,
     "skipped": 1,
-    "failures": 0,
-    "skip_reason": "Optional externally supplied EPUB was not provided"
-  },
-  "ui_tests": {
-    "status": "PASS",
-    "defined": 7,
-    "executed": 7,
     "failures": 0
   },
-  "private_git_history_copied": false,
-  "git_history_commit_count": 1,
-  "remote_created": false,
-  "published": false,
-  "ready_for_publication": true,
-  "waiting_for_user_license_decision": false,
-  "waiting_for_final_user_approval": true
+  "windows_validation": {
+    "status": "PENDING_UNIFIED_REPOSITORY_CI",
+    "workflow": ".github/workflows/windows-ci.yml"
+  }
 }
