@@ -1,13 +1,13 @@
 # 开源发布前最终报告
 
-审计日期：2026-09-09
+审计日期：2026-09-19
 候选版本：1.0.1 (4)
 
 这是首次公开 macOS 源码前的历史审计记录，不包含凭据、私人路径、用户 EPUB 或私有 Git 历史。
 
 ## 许可证与归属
 
-- 仓库在 `LICENSE` 中包含完整的 Apache License 2.0 原文。
+- 仓库在 `LICENSE` 中包含完整的 GNU Affero General Public License v3.0 原文，SPDX 标识为 `AGPL-3.0-only`。
 - 项目归属记录在 `NOTICE` 中，并与 App 元数据一致。
 - 未发现需要额外再分发许可的第三方源码、软件包、字体、模型、SDK 或参考截图。
 - 自制 EPUB Fixture 包含可读源文件和来源说明。

@@ -29,4 +29,4 @@ Windows 构建与测试说明见 [`app/windows/README.md`](app/windows/README.md
 
 ## 许可证
 
-本项目采用 Apache License 2.0。除非您明确另行说明，您有意提交并被项目接收的贡献将依据 Apache License 2.0 第 5 条按相同条款提供；已有单独书面许可协议的，以该协议为准。
+本项目采用 GNU Affero General Public License v3.0（`AGPL-3.0-only`）。除非您明确另行说明，您有意提交并被项目接收的贡献将按相同的 AGPL v3 条款提供；已有单独书面贡献协议的，以该协议为准。

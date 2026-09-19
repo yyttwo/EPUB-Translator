@@ -20,4 +20,4 @@ macOS 版本调用 Foundation、SwiftUI、AppKit、UniformTypeIdentifiers、Cryp
 
 ## 许可证关系
 
-本项目自身的代码与素材依据根目录 `LICENSE` 中的 Apache License 2.0 提供。以上平台、服务和格式说明仅用于准确描述外部接口与运行环境，不主张相关商标、服务、SDK、模型或标准属于本项目。
+本项目自身的代码与素材依据根目录 `LICENSE` 中的 GNU Affero General Public License v3.0（`AGPL-3.0-only`）提供。第三方组件、平台、服务、SDK、模型和标准仍遵循其各自条款；以上说明仅用于准确描述外部接口与运行环境，不主张相关权利属于本项目。

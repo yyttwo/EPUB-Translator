@@ -4,7 +4,7 @@
   "platforms": ["macOS", "Windows"],
   "macos_version": "1.0.1",
   "windows_version": "0.1.0-preview.1",
-  "license": "Apache-2.0",
+  "license": "AGPL-3.0-only",
   "license_compliance": "PASS",
   "privacy_scan": "PASS",
   "secret_scan": "PASS",

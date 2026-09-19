@@ -15,6 +15,6 @@ Windows 源码引用以下构建、界面和测试包。仓库不提交这些包
 
 Qwen 和 DeepSeek 是外部网络服务。仓库不包含服务商 SDK、模型、凭据或服务端代码。
 
-品牌图标来自本项目现有的 Apache-2.0 公开源码。测试 EPUB 由本项目专门创作，详见 `fixtures/FIXTURE_PROVENANCE.md`。
+品牌图标来自本项目依据 `AGPL-3.0-only` 发布的原创素材。测试 EPUB 由本项目专门创作，详见 `fixtures/FIXTURE_PROVENANCE.md`。
 
 发布二进制文件前，应再次审计恢复结果与传递依赖，并根据实际锁定的依赖图生成随包说明。

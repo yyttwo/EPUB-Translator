@@ -170,4 +170,4 @@ EPUB 文件结构在本机处理。翻译所需的文本片段及少量相邻上
 
 Copyright 2026 yyttwo。
 
-本项目采用 [Apache License 2.0](LICENSE) 开源。第三方组件说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [Windows 第三方组件说明](app/windows/THIRD_PARTY_NOTICES.md)。
+本项目采用 [GNU Affero General Public License v3.0（AGPL-3.0-only）](LICENSE) 开源。修改或分发本项目，以及通过网络向用户提供修改版功能时，请遵守 AGPL v3 的源码提供要求。第三方组件继续遵循各自许可证，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [Windows 第三方组件说明](app/windows/THIRD_PARTY_NOTICES.md)。

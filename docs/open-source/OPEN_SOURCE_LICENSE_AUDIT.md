@@ -1,13 +1,13 @@
 # 开源许可证审计
 
-审计日期：2026-09-09
+审计日期：2026-09-19
 候选版本：1.0.1 (4)
 
 ## 项目许可证
 
-仓库在 `LICENSE` 中包含完整、未经修改的 Apache License 2.0 原文。项目版权与归属记录在 `NOTICE` 中，App 元数据使用相同的公开版权主体。仓库不需要也不包含私人法定姓名或私人邮箱地址。
+仓库在 `LICENSE` 中包含完整、未经修改的 GNU Affero General Public License v3.0 原文。项目版权与归属记录在 `NOTICE` 中，App 元数据使用相同的公开版权主体。仓库不需要也不包含私人法定姓名或私人邮箱地址。
 
-`LICENSE_SELECTED=Apache-2.0`
+`LICENSE_SELECTED=AGPL-3.0-only`
 `LICENSE_COMPLIANCE=PASS`
 
 ## 依赖审查
@@ -26,4 +26,4 @@
 
 ## 结论
 
-未发现第三方再分发冲突。项目许可证、版权说明、贡献条款和 App 元数据与 Apache License 2.0 一致。
+未发现第三方再分发冲突。项目许可证、版权说明、贡献条款和 App 元数据与 AGPL v3 一致；第三方组件继续遵循其各自许可证。
