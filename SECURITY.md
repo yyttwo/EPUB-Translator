@@ -1,19 +1,30 @@
-# Security Policy
+# 安全政策
 
-## Supported version
+## 支持的版本
 
-Security fixes currently target the latest published release and the current `main` branch.
+安全修复目前面向最新公开版本和当前 `main` 分支。
 
-## Reporting a vulnerability
+## 报告安全漏洞
 
-Use GitHub private vulnerability reporting from this repository's **Security** tab. Do not open a public Issue for an unpatched vulnerability.
+请在本仓库的 **安全（Security）** 页面中使用 GitHub 的“私密报告漏洞”功能。对于尚未修复的漏洞，请勿创建公开 Issue。
 
-Include only the minimum reproducible information. Never submit a real API Key, private EPUB, translated book, personal file path, account identifier, or credential-bearing log. Replace sensitive values with synthetic placeholders and confirm that screenshots are redacted.
+报告时只需提供能够复现问题的最少信息。请勿提交：
 
-## Secret exposure
+- 真实 API Key、密码或其他凭据
+- 私人 EPUB 或翻译成品
+- 个人文件路径、账户标识或设备信息
+- 含有凭据的完整日志
+- 未经脱敏的截图
 
-If a real API Key is exposed anywhere, revoke it with the relevant provider immediately. Removing it from a later commit is not sufficient because Git history and caches may retain it.
+请使用虚构的占位内容代替敏感信息，并在提交截图前确认所有个人信息均已遮盖。
 
-## Product credential model
+## API Key 泄露处理
 
-API Keys are held in memory for the current App session only and are cleared when the App exits. The App does not use macOS Keychain persistence.
+如果真实 API Key 在任何地方意外公开，请立即前往对应服务商撤销并重新生成。仅从后续提交中删除密钥并不安全，因为 Git 历史记录、缓存或其他副本可能仍然保留原值。
+
+## 产品凭据处理方式
+
+- **macOS：** API Key 仅保存在当前 App 运行期间的内存中，退出 App 后清除，不写入 macOS 钥匙串。
+- **Windows：** API Key 使用 Windows Credential Manager 保存，不写入源码、日志或普通配置文件。
+
+EPUB Translator 没有用于收集或转存用户 API Key 的项目服务器。
