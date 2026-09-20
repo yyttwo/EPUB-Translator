@@ -96,11 +96,17 @@ EPUB翻译是一款免费的跨平台 EPUB 英译中工具，支持 macOS 与 Wi
 
 ## 界面预览
 
-### macOS v1.0.1
+### macOS v1.0.1（Apple 芯片）
 
 | 翻译 | API 管理 | 关于与帮助 |
 | --- | --- | --- |
 | ![macOS 翻译页](docs/assets/screenshots/macos-v1.0.1/translate.png) | ![macOS API 管理页](docs/assets/screenshots/macos-v1.0.1/api-manager.png) | ![macOS 关于与帮助页](docs/assets/screenshots/macos-v1.0.1/about-help.png) |
+
+### macOS Intel v1.0.1
+
+| 翻译 | API 管理 | 关于与帮助 |
+| --- | --- | --- |
+| ![macOS Intel 翻译页](docs/assets/screenshots/macos-intel-v1.0.1/translate.jpg) | ![macOS Intel API 管理页](docs/assets/screenshots/macos-intel-v1.0.1/api-manager.jpg) | ![macOS Intel 关于与帮助页](docs/assets/screenshots/macos-intel-v1.0.1/about-help.jpg) |
 
 ### Windows x64 Preview v0.1.0
 
